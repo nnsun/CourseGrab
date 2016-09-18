@@ -20,6 +20,14 @@ p {
     color: white;
     font-family: Helvetica;
 }
+#disclaimer {
+    font-size: 1.25em;
+    line-height: 1.4em;
+    color: white;
+    font-family: Helvetica;
+    bottom: 80;
+}
+
 #bottom {
     font-size: 10px;
     color: white;
