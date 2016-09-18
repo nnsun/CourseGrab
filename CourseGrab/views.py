@@ -3,7 +3,7 @@ Routes and views for the flask application.
 """
 
 from datetime import datetime
-from flask import render_template
+from flask import render_template, send_from_directory, request
 from CourseGrab import app
 
 @app.route('/')
@@ -16,19 +16,19 @@ def home():
         year=datetime.now().year,
     )
 
-@app.route('/showSignUp')
-def showSignUp():
-    return render_template('signup.html')
+@app.route('/obey', methods=['POST'])
+def edit_csv():
+    error = None
+    if request.method == 'POST':
+        with open("CourseGrab/scripts/ledger.csv","a") as fh:
+            fh.write(request.form['email']+","+request.form['course_number']+"\n")
+        print (__file__)
+        return render_template("success.html")
 
-@app.route('/signUp',methods=['POST'])
-def signUp():
-    _email = request.form['inputEmail']
-    _password = request.form['inputPassword']
 
-    if  _email and _password:
-        return json.dumps({'html':'<span>All fields good</span>'})
-    else:
-        return json.dumps({'html':'<span>Enter the required fields</span>'})
+
+    # the code below is executed if the request method
+    # was GET or the credentials were invalid
 
 #@app.route('/contact')
 #def contact():

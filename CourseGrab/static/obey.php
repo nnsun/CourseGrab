@@ -13,7 +13,7 @@
      fclose($fp); // Close the file
     }
     if(processing == success) {
-      header("Location:success.html");
+      header("Location:../templates/success.html");
       exit();
     }
 ?>
