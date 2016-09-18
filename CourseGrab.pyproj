@@ -31,13 +31,22 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CourseGrab\views-temp.py" />
+    <Compile Include="CourseGrab\scripts\loop_courses.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="CourseGrab\scripts\check_course.py" />
+    <Compile Include="CourseGrab\scripts\course_num_parser.py" />
+    <Compile Include="CourseGrab\scripts\read_dict.py" />
+    <Compile Include="CourseGrab\scripts\sendmail.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="CourseGrab\__init__.py" />
     <Compile Include="CourseGrab\views.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CourseGrab\" />
+    <Folder Include="CourseGrab\scripts\" />
     <Folder Include="CourseGrab\static\" />
     <Folder Include="CourseGrab\static\content\" />
     <Folder Include="CourseGrab\static\fonts\" />
@@ -46,9 +55,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CourseGrab - Web Deploy.pubxml" />
-    <Content Include="CourseGrab\static\signup.css" />
+    <Content Include="CourseGrab\scripts\course_subject_dict.csv" />
     <Content Include="CourseGrab\templates\index.html" />
-    <Content Include="CourseGrab\templates\signup.html" />
     <Content Include="requirements.txt" />
     <Content Include="CourseGrab\static\content\bootstrap.css" />
     <Content Include="CourseGrab\static\content\bootstrap.min.css" />
