@@ -31,6 +31,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="CourseGrab\views-temp.py" />
     <Compile Include="runserver.py" />
     <Compile Include="CourseGrab\__init__.py" />
     <Compile Include="CourseGrab\views.py" />
@@ -45,7 +46,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CourseGrab - Web Deploy.pubxml" />
-    <None Include="CourseGrab - Web Deploy %282%29.pubxml" />
     <Content Include="CourseGrab\static\signup.css" />
     <Content Include="CourseGrab\templates\index.html" />
     <Content Include="CourseGrab\templates\signup.html" />
