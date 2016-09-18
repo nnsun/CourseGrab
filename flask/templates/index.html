@@ -1,66 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
-    <title>Welcome to CourseGrab!</title>
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <!-- link to main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="../static/main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: url(http://ezramagazine.cornell.edu/Update/Jan10/photos/fpo.jpg);
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+        }
+        h1 {
+            font-size: 60px
+        }
+        p {
+            font-size: 24px;
+        }
+        }
+    </style>
 </head>
-
 <body>
+<h1>CourseGrab
+</h1>
+<br><br><br><br>
+<p>Welcome to CourseGrab! <br> Give us your email address and the course ID of the class you want, and we'll send you an email
+    when it's open. <br> That's it!
+</p>
 
-<div class="container">
-    <div class="header">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="#">Home</a>
-                </li>
-                <li role="presentation"><a href="#">Sign In</a>
-                </li>
-                <li role="presentation"><a href="showSignUp">Sign Up</a>
-                </li>
-            </ul>
-        </nav>
-        <h3 class="text-muted">Python Flask App</h3>
-    </div>
+<form action="../static/success.html">
+    <input type="email" placeholder="Email" size="20"> <br>
+    <input type="number" placeholder="Course ID" size="20" maxlength="5"> <br>
+    <input type=submit>
+</form>
 
-    <div class="jumbotron">
-        <h1>Course Number</h1>
-        <p class="lead"></p>
-        <p><a class="btn btn-lg btn-success" href="showSignUp" role="button">Sign up today</a>
-        </p>
-    </div>
+<br><br><br><br><br><br><br><br><br>
 
-    <div class="row marketing">
-        <div class="col-lg-6">
-            <h4>Course Number</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+<footer class="footer">
+    <p id="bottom">
+        Made for Big Red Hacks 2016 <br>
+        by Chase Thomas and Ning Ning Sun</p>
+</footer>
 
-            <h4>Course Number</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-            <h4>Course Number</h4>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-
-        <div class="col-lg-6">
-            <h4>Course Number</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-            <h4>Course Number</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-            <h4>Course Number</h4>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-    </div>
-
-    <footer class="footer">
-        <p>Made by Ning Ning Sun and Chase Thomas</p>
-    </footer>
-
-</div>
 </body>
-
-</html>
 

@@ -1,0 +1,33 @@
+body {
+    margin: 60px auto;
+    width: 70%;
+}
+a {
+    text-decoration: none;
+    color: #999;
+}
+a:hover {
+    text-decoration: underline;
+}
+h1 {
+    font-size: 1em;
+    font-family: Sans-Serif;
+    color: #333;
+}
+p {
+    font-size: 1.5em;
+    line-height: 1.4em;
+    color: white;
+    font-family: Helvetica;
+}
+#bottom {
+    bottom: 20px;
+    font-size: 10px;
+    color: white;
+}
+
+.social-icons {
+    color: #333;
+    letter-spacing: 30px;
+    text-align: center;
+}
