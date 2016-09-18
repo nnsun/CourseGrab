@@ -2,12 +2,10 @@
 <html lang="en">
 <head>
     <title>CourseGrab</title>
-
-
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-
     <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
     <link href="../static/signup.css" rel="stylesheet">
+    <script src="../static/js/jquery-3.1.0.min.js"></script>
 
 </head>
 
@@ -46,3 +44,22 @@
 </div>
 </body>
 </html>
+
+<script>
+    $(function() {
+        $('#btnSignUp').click(function() {
+
+            $.ajax({
+                url: '/signUp',
+                data: $('form').serialize(),
+                type: 'POST',
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        });
+    });
+</script>
