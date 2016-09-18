@@ -20,7 +20,7 @@ def home():
 def edit_csv():
     error = None
     if request.method == 'POST':
-        with open("CourseGrab/scripts/ledger.csv","a") as fh:
+        with open("scripts/ledger.csv","a") as fh:
             fh.write(request.form['email']+","+request.form['course_number']+"\n")
         print (__file__)
         return render_template("success.html")
