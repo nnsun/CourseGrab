@@ -20,7 +20,7 @@
     <RootNamespace>CourseGrab</RootNamespace>
     <InterpreterId>{0be59d40-606c-4a9f-9222-3e83927f0264}</InterpreterId>
     <InterpreterVersion>2.7</InterpreterVersion>
-    <NameOfLastUsedPublishProfile>CourseGrab - Web Deploy</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>CornellCourseGrab - Web Deploy</NameOfLastUsedPublishProfile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -55,9 +55,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CourseGrab - Web Deploy.pubxml" />
+    <None Include="CourseGrab - Web Deploy %282%29.pubxml" />
+    <None Include="CourseGrab - Web Deploy %283%29.pubxml" />
+    <None Include="CornellCourseGrab.pubxml" />
+    <None Include="CornellCourseGrab - Web Deploy.pubxml" />
     <Content Include="CourseGrab\scripts\course_subject_dict.csv" />
+    <Content Include="CourseGrab\scripts\ledger.csv" />
+    <Content Include="CourseGrab\static\main.css" />
     <Content Include="CourseGrab\templates\index.html" />
-    <Content Include="CourseGrab\templates\obey.php" />
     <Content Include="CourseGrab\templates\success.html" />
     <Content Include="requirements.txt" />
     <Content Include="CourseGrab\static\content\bootstrap.css" />

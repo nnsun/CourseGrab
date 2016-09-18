@@ -1,0 +1,9 @@
+HTML5LIB_PRESENT
+e
+skipIf
+warnings
+SoupStrainer
+HTML5LibBuilderSmokeTest
+HTML5TreeBuilder
+SoupTest
+HTML5TreeBuilderSmokeTest

@@ -1,0 +1,7 @@
+test_lxml
+test_htmlparser
+test_docs
+test_soup
+test_builder_registry
+test_html5lib
+test_tree

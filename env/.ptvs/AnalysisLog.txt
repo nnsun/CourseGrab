@@ -1255,3 +1255,399 @@ C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Micro
 2016-09-17T21:40:49: Saving group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\wheel"
 2016-09-17T21:40:49: End of group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\wheel"
 2016-09-17T21:40:50: Deleting 0 files
+
+2016-09-18T07:20:41: Start analysis
+2016-09-18T07:20:41: [WARNING] Library was set explicitly - skipping path detection
+2016-09-18T07:20:41: IncludeModulesFromModulePath = win32com
+2016-09-18T07:20:41: Deleting 0 files
+2016-09-18T07:20:41: astropy.CallDepth = 0
+2016-09-18T07:20:41: matplotlib.CallDepth = 3
+2016-09-18T07:20:41: pandas.CallDepth = 0
+2016-09-18T07:20:41: sympy.CallDepth = 0
+2016-09-18T07:20:41: Start group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests" with 81 files
+2016-09-18T07:20:42: Parsing "requests.adapters" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\adapters.py")
+2016-09-18T07:20:42: Parsing "requests.api" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\api.py")
+2016-09-18T07:20:42: Parsing "requests.auth" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\auth.py")
+2016-09-18T07:20:42: Parsing "requests.certs" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\certs.py")
+2016-09-18T07:20:42: Parsing "requests.compat" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\compat.py")
+2016-09-18T07:20:42: Parsing "requests.cookies" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\cookies.py")
+2016-09-18T07:20:42: Parsing "requests.exceptions" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\exceptions.py")
+2016-09-18T07:20:42: Parsing "requests.hooks" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\hooks.py")
+2016-09-18T07:20:42: Parsing "requests.models" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\models.py")
+2016-09-18T07:20:42: Parsing "requests.sessions" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\sessions.py")
+2016-09-18T07:20:42: Parsing "requests.status_codes" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\status_codes.py")
+2016-09-18T07:20:42: Parsing "requests.structures" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\structures.py")
+2016-09-18T07:20:42: Parsing "requests.utils" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\utils.py")
+2016-09-18T07:20:42: Parsing "requests" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\__init__.py")
+2016-09-18T07:20:42: Parsing "requests.packages" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\__init__.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.big5freq" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\big5freq.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.big5prober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\big5prober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.chardetect" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\chardetect.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.chardistribution" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\chardistribution.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.charsetgroupprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\charsetgroupprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.charsetprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\charsetprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.codingstatemachine" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\codingstatemachine.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.compat" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\compat.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.constants" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\constants.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.cp949prober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\cp949prober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.escprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\escprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.escsm" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\escsm.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.eucjpprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\eucjpprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.euckrfreq" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\euckrfreq.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.euckrprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\euckrprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.euctwfreq" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\euctwfreq.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.euctwprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\euctwprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.gb2312freq" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\gb2312freq.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.gb2312prober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\gb2312prober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.hebrewprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\hebrewprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.jisfreq" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\jisfreq.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.jpcntx" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\jpcntx.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.langbulgarianmodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langbulgarianmodel.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.langcyrillicmodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langcyrillicmodel.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.langgreekmodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langgreekmodel.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.langhebrewmodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langhebrewmodel.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.langhungarianmodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langhungarianmodel.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.langthaimodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langthaimodel.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.latin1prober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\latin1prober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.mbcharsetprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\mbcharsetprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.mbcsgroupprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\mbcsgroupprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.mbcssm" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\mbcssm.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.sbcharsetprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\sbcharsetprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.sbcsgroupprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\sbcsgroupprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.sjisprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\sjisprober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.universaldetector" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\universaldetector.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet.utf8prober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\utf8prober.py")
+2016-09-18T07:20:42: Parsing "requests.packages.chardet" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\__init__.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.connection" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\connection.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.connectionpool" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\connectionpool.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.exceptions" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\exceptions.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.fields" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\fields.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.filepost" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\filepost.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.poolmanager" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\poolmanager.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.request" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\request.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.response" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\response.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3._collections" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\_collections.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\__init__.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.contrib.appengine" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\contrib\appengine.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.contrib.ntlmpool" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\contrib\ntlmpool.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.contrib.pyopenssl" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\contrib\pyopenssl.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.contrib.socks" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\contrib\socks.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.contrib" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\contrib\__init__.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.packages.ordered_dict" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\packages\ordered_dict.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.packages.six" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\packages\six.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.packages" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\packages\__init__.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.packages.ssl_match_hostname._implementation" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\packages\ssl_match_hostname\_implementation.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.packages.ssl_match_hostname" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\packages\ssl_match_hostname\__init__.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.util.connection" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\connection.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.util.request" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\request.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.util.response" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\response.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.util.retry" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\retry.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.util.ssl_" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\ssl_.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.util.timeout" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\timeout.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.util.url" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\url.py")
+2016-09-18T07:20:42: Parsing "requests.packages.urllib3.util" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\__init__.py")
+2016-09-18T07:20:42: Parsing complete
+2016-09-18T07:20:42: Analyzing "requests.adapters"
+2016-09-18T07:20:42: Analyzing "requests.api"
+2016-09-18T07:20:42: Analyzing "requests.auth"
+2016-09-18T07:20:42: Analyzing "requests.certs"
+2016-09-18T07:20:42: Analyzing "requests.compat"
+2016-09-18T07:20:42: Analyzing "requests.cookies"
+2016-09-18T07:20:42: Analyzing "requests.exceptions"
+2016-09-18T07:20:42: Analyzing "requests.hooks"
+2016-09-18T07:20:42: Analyzing "requests.models"
+2016-09-18T07:20:42: Analyzing "requests.sessions"
+2016-09-18T07:20:42: Analyzing "requests.status_codes"
+2016-09-18T07:20:42: Analyzing "requests.structures"
+2016-09-18T07:20:42: Analyzing "requests.utils"
+2016-09-18T07:20:42: Analyzing "requests"
+2016-09-18T07:20:42: Analyzing "requests.packages"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.big5freq"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.big5prober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.chardetect"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.chardistribution"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.charsetgroupprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.charsetprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.codingstatemachine"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.compat"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.constants"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.cp949prober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.escprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.escsm"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.eucjpprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.euckrfreq"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.euckrprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.euctwfreq"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.euctwprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.gb2312freq"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.gb2312prober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.hebrewprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.jisfreq"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.jpcntx"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.langbulgarianmodel"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.langcyrillicmodel"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.langgreekmodel"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.langhebrewmodel"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.langhungarianmodel"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.langthaimodel"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.latin1prober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.mbcharsetprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.mbcsgroupprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.mbcssm"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.sbcharsetprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.sbcsgroupprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.sjisprober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.universaldetector"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet.utf8prober"
+2016-09-18T07:20:42: Analyzing "requests.packages.chardet"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.connection"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.connectionpool"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.exceptions"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.fields"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.filepost"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.poolmanager"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.request"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.response"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3._collections"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.contrib.appengine"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.contrib.ntlmpool"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.contrib.pyopenssl"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.contrib.socks"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.contrib"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.packages.ordered_dict"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.packages.six"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.packages"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.packages.ssl_match_hostname._implementation"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.packages.ssl_match_hostname"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.util.connection"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.util.request"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.util.response"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.util.retry"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.util.ssl_"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.util.timeout"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.util.url"
+2016-09-18T07:20:42: Analyzing "requests.packages.urllib3.util"
+2016-09-18T07:20:42: Starting analysis of 81 modules
+2016-09-18T07:20:44: Analysis complete
+2016-09-18T07:20:44: Saving group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests"
+2016-09-18T07:20:45: End of group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests"
+2016-09-18T07:20:45: Deleting 0 files
+
+2016-09-18T07:20:51: Start analysis
+2016-09-18T07:20:51: [WARNING] Library was set explicitly - skipping path detection
+2016-09-18T07:20:51: IncludeModulesFromModulePath = win32com
+2016-09-18T07:20:52: Deleting 60 files
+2016-09-18T07:20:52: astropy.CallDepth = 0
+2016-09-18T07:20:52: matplotlib.CallDepth = 3
+2016-09-18T07:20:52: pandas.CallDepth = 0
+2016-09-18T07:20:52: sympy.CallDepth = 0
+2016-09-18T07:20:52: Start group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4" with 17 files
+2016-09-18T07:20:53: Parsing "bs4.dammit" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\dammit.py")
+2016-09-18T07:20:53: Parsing "bs4.diagnose" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\diagnose.py")
+2016-09-18T07:20:53: Parsing "bs4.element" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\element.py")
+2016-09-18T07:20:53: Parsing "bs4.testing" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\testing.py")
+2016-09-18T07:20:53: Parsing "bs4" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\__init__.py")
+2016-09-18T07:20:53: Parsing "bs4.builder._html5lib" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\builder\_html5lib.py")
+2016-09-18T07:20:53: Parsing "bs4.builder._htmlparser" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\builder\_htmlparser.py")
+2016-09-18T07:20:53: Parsing "bs4.builder._lxml" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\builder\_lxml.py")
+2016-09-18T07:20:53: Parsing "bs4.builder" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\builder\__init__.py")
+2016-09-18T07:20:53: Parsing "bs4.tests.test_builder_registry" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\tests\test_builder_registry.py")
+2016-09-18T07:20:53: Parsing "bs4.tests.test_docs" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\tests\test_docs.py")
+2016-09-18T07:20:53: Parsing "bs4.tests.test_html5lib" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\tests\test_html5lib.py")
+2016-09-18T07:20:53: Parsing "bs4.tests.test_htmlparser" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\tests\test_htmlparser.py")
+2016-09-18T07:20:53: Parsing "bs4.tests.test_lxml" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\tests\test_lxml.py")
+2016-09-18T07:20:53: Parsing "bs4.tests.test_soup" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\tests\test_soup.py")
+2016-09-18T07:20:53: Parsing "bs4.tests.test_tree" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\tests\test_tree.py")
+2016-09-18T07:20:53: Parsing "bs4.tests" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4\tests\__init__.py")
+2016-09-18T07:20:53: Parsing complete
+2016-09-18T07:20:53: Analyzing "bs4.dammit"
+2016-09-18T07:20:53: Analyzing "bs4.diagnose"
+2016-09-18T07:20:53: Analyzing "bs4.element"
+2016-09-18T07:20:53: Analyzing "bs4.testing"
+2016-09-18T07:20:53: Analyzing "bs4"
+2016-09-18T07:20:53: Analyzing "bs4.builder._html5lib"
+2016-09-18T07:20:53: Analyzing "bs4.builder._htmlparser"
+2016-09-18T07:20:53: Analyzing "bs4.builder._lxml"
+2016-09-18T07:20:53: Analyzing "bs4.builder"
+2016-09-18T07:20:53: Analyzing "bs4.tests.test_builder_registry"
+2016-09-18T07:20:53: Analyzing "bs4.tests.test_docs"
+2016-09-18T07:20:53: Analyzing "bs4.tests.test_html5lib"
+2016-09-18T07:20:53: Analyzing "bs4.tests.test_htmlparser"
+2016-09-18T07:20:53: Analyzing "bs4.tests.test_lxml"
+2016-09-18T07:20:53: Analyzing "bs4.tests.test_soup"
+2016-09-18T07:20:53: Analyzing "bs4.tests.test_tree"
+2016-09-18T07:20:53: Analyzing "bs4.tests"
+2016-09-18T07:20:53: Starting analysis of 17 modules
+2016-09-18T07:20:55: Analysis complete
+2016-09-18T07:20:55: Saving group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4"
+2016-09-18T07:20:55: End of group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\bs4"
+2016-09-18T07:20:55: Start group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests" with 81 files
+2016-09-18T07:20:56: Parsing "requests.adapters" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\adapters.py")
+2016-09-18T07:20:56: Parsing "requests.api" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\api.py")
+2016-09-18T07:20:56: Parsing "requests.auth" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\auth.py")
+2016-09-18T07:20:56: Parsing "requests.certs" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\certs.py")
+2016-09-18T07:20:56: Parsing "requests.compat" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\compat.py")
+2016-09-18T07:20:56: Parsing "requests.cookies" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\cookies.py")
+2016-09-18T07:20:56: Parsing "requests.exceptions" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\exceptions.py")
+2016-09-18T07:20:56: Parsing "requests.hooks" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\hooks.py")
+2016-09-18T07:20:56: Parsing "requests.models" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\models.py")
+2016-09-18T07:20:56: Parsing "requests.sessions" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\sessions.py")
+2016-09-18T07:20:56: Parsing "requests.status_codes" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\status_codes.py")
+2016-09-18T07:20:56: Parsing "requests.structures" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\structures.py")
+2016-09-18T07:20:56: Parsing "requests.utils" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\utils.py")
+2016-09-18T07:20:56: Parsing "requests" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\__init__.py")
+2016-09-18T07:20:56: Parsing "requests.packages" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\__init__.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.big5freq" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\big5freq.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.big5prober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\big5prober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.chardetect" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\chardetect.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.chardistribution" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\chardistribution.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.charsetgroupprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\charsetgroupprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.charsetprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\charsetprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.codingstatemachine" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\codingstatemachine.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.compat" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\compat.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.constants" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\constants.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.cp949prober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\cp949prober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.escprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\escprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.escsm" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\escsm.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.eucjpprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\eucjpprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.euckrfreq" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\euckrfreq.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.euckrprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\euckrprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.euctwfreq" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\euctwfreq.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.euctwprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\euctwprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.gb2312freq" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\gb2312freq.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.gb2312prober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\gb2312prober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.hebrewprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\hebrewprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.jisfreq" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\jisfreq.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.jpcntx" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\jpcntx.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.langbulgarianmodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langbulgarianmodel.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.langcyrillicmodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langcyrillicmodel.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.langgreekmodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langgreekmodel.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.langhebrewmodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langhebrewmodel.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.langhungarianmodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langhungarianmodel.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.langthaimodel" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\langthaimodel.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.latin1prober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\latin1prober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.mbcharsetprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\mbcharsetprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.mbcsgroupprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\mbcsgroupprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.mbcssm" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\mbcssm.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.sbcharsetprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\sbcharsetprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.sbcsgroupprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\sbcsgroupprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.sjisprober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\sjisprober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.universaldetector" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\universaldetector.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet.utf8prober" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\utf8prober.py")
+2016-09-18T07:20:56: Parsing "requests.packages.chardet" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\chardet\__init__.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.connection" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\connection.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.connectionpool" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\connectionpool.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.exceptions" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\exceptions.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.fields" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\fields.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.filepost" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\filepost.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.poolmanager" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\poolmanager.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.request" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\request.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.response" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\response.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3._collections" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\_collections.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\__init__.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.contrib.appengine" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\contrib\appengine.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.contrib.ntlmpool" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\contrib\ntlmpool.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.contrib.pyopenssl" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\contrib\pyopenssl.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.contrib.socks" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\contrib\socks.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.contrib" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\contrib\__init__.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.packages.ordered_dict" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\packages\ordered_dict.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.packages.six" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\packages\six.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.packages" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\packages\__init__.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.packages.ssl_match_hostname._implementation" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\packages\ssl_match_hostname\_implementation.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.packages.ssl_match_hostname" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\packages\ssl_match_hostname\__init__.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.util.connection" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\connection.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.util.request" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\request.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.util.response" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\response.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.util.retry" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\retry.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.util.ssl_" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\ssl_.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.util.timeout" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\timeout.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.util.url" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\url.py")
+2016-09-18T07:20:56: Parsing "requests.packages.urllib3.util" ("C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests\packages\urllib3\util\__init__.py")
+2016-09-18T07:20:56: Parsing complete
+2016-09-18T07:20:56: Analyzing "requests.adapters"
+2016-09-18T07:20:56: Analyzing "requests.api"
+2016-09-18T07:20:56: Analyzing "requests.auth"
+2016-09-18T07:20:56: Analyzing "requests.certs"
+2016-09-18T07:20:56: Analyzing "requests.compat"
+2016-09-18T07:20:56: Analyzing "requests.cookies"
+2016-09-18T07:20:56: Analyzing "requests.exceptions"
+2016-09-18T07:20:56: Analyzing "requests.hooks"
+2016-09-18T07:20:56: Analyzing "requests.models"
+2016-09-18T07:20:56: Analyzing "requests.sessions"
+2016-09-18T07:20:56: Analyzing "requests.status_codes"
+2016-09-18T07:20:56: Analyzing "requests.structures"
+2016-09-18T07:20:56: Analyzing "requests.utils"
+2016-09-18T07:20:56: Analyzing "requests"
+2016-09-18T07:20:56: Analyzing "requests.packages"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.big5freq"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.big5prober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.chardetect"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.chardistribution"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.charsetgroupprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.charsetprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.codingstatemachine"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.compat"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.constants"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.cp949prober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.escprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.escsm"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.eucjpprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.euckrfreq"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.euckrprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.euctwfreq"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.euctwprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.gb2312freq"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.gb2312prober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.hebrewprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.jisfreq"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.jpcntx"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.langbulgarianmodel"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.langcyrillicmodel"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.langgreekmodel"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.langhebrewmodel"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.langhungarianmodel"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.langthaimodel"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.latin1prober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.mbcharsetprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.mbcsgroupprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.mbcssm"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.sbcharsetprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.sbcsgroupprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.sjisprober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.universaldetector"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet.utf8prober"
+2016-09-18T07:20:56: Analyzing "requests.packages.chardet"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.connection"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.connectionpool"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.exceptions"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.fields"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.filepost"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.poolmanager"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.request"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.response"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3._collections"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.contrib.appengine"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.contrib.ntlmpool"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.contrib.pyopenssl"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.contrib.socks"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.contrib"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.packages.ordered_dict"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.packages.six"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.packages"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.packages.ssl_match_hostname._implementation"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.packages.ssl_match_hostname"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.util.connection"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.util.request"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.util.response"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.util.retry"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.util.ssl_"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.util.timeout"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.util.url"
+2016-09-18T07:20:56: Analyzing "requests.packages.urllib3.util"
+2016-09-18T07:20:56: Starting analysis of 81 modules
+2016-09-18T07:20:57: Analysis complete
+2016-09-18T07:20:57: Saving group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests"
+2016-09-18T07:20:58: End of group "C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\env\Lib\site-packages\requests"
+2016-09-18T07:20:58: Deleting 0 files
