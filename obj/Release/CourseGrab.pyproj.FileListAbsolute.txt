@@ -1,0 +1,9 @@
+C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\bin\Microsoft.PythonTools.WebRole.dll
+C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\bin\AzureSetup.cfg
+C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\bin\Microsoft.PythonTools.AzureSetup.exe
+C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\bin\Microsoft.PythonTools.AzureSetup.exe.config
+C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\bin\wfastcgi.py
+C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\obj\Release\deployment-updated-orig-prefix.txt
+C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\ptvs_virtualenv_proxy.py
+C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\obj\Release\web.config
+C:\Users\nsun2\OneDrive\Documents\CS and programming\Projects\CourseGrab\CourseGrab\obj\Release\web.debug.config

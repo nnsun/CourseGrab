@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="InterpreterPath" defaultValue="D:\Python27\python.exe">
+    <parameterEntry kind="TextFile" scope="\\web\.config$" match="%INTERPRETERPATH%" />
+  </parameter>
+  <parameter name="SiteRoot" defaultValue="D:\home\site\wwwroot">
+    <parameterEntry kind="TextFile" scope="\\web\.config$" match="%ROOTDIR%" />
+  </parameter>
+  <parameter name="WFastCgi" defaultValue="D:\Python27\Scripts\wfastcgi.py">
+    <parameterEntry kind="TextFile" scope="\\web\.config$" match="%WFASTCGIPATH%" />
+  </parameter>
+</parameters>
