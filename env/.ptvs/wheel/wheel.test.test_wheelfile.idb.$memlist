@@ -1,0 +1,17 @@
+test_zipfile_attributes
+tempfile
+environ
+os
+test_zipfile_timestamp
+StringIO
+hashlib
+contextmanager
+temporary_directory
+codecs
+readable_zipfile
+pytest
+shutil
+test_verifying_zipfile
+zipfile
+wheel
+test_pop_zipfile

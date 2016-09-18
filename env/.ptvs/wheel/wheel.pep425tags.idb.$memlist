@@ -1,0 +1,12 @@
+distutils
+get_impl_version_info
+get_abi_tag
+get_abbr_impl
+get_platform
+sys
+warnings
+sysconfig
+get_supported
+get_impl_ver
+get_config_var
+get_flag

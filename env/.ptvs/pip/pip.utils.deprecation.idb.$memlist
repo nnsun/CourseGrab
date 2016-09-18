@@ -1,0 +1,11 @@
+Pending
+absolute_import
+logging
+_warnings_showwarning
+warnings
+install_warning_logger
+PipDeprecationWarning
+RemovedInPip9Warning
+RemovedInPip10Warning
+Python26DeprecationWarning
+_showwarning

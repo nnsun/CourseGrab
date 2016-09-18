@@ -1,0 +1,16 @@
+sys
+patch_for_msvc_specialized_compiler
+setuptools
+types
+_patch_distribution_metadata_write_pkg_file
+six
+patch_func
+__all__
+_patch_distribution_metadata_write_pkg_info
+patch_all
+distutils
+get_unpatched
+get_unpatched_class
+import_module
+get_unpatched_function
+platform
