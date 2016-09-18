@@ -1,0 +1,17 @@
+html_meta_re
+logging
+EntitySubstitution
+EncodingDetector
+chardet_type
+re
+UnicodeDammit
+__license__
+chardet
+codepoint2name
+xml_encoding_re
+set_trace
+codecs
+iconv_codec
+string
+chardet_dammit
+cchardet
