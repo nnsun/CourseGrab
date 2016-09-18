@@ -57,6 +57,8 @@
     <None Include="CourseGrab - Web Deploy.pubxml" />
     <Content Include="CourseGrab\scripts\course_subject_dict.csv" />
     <Content Include="CourseGrab\templates\index.html" />
+    <Content Include="CourseGrab\templates\obey.php" />
+    <Content Include="CourseGrab\templates\success.html" />
     <Content Include="requirements.txt" />
     <Content Include="CourseGrab\static\content\bootstrap.css" />
     <Content Include="CourseGrab\static\content\bootstrap.min.css" />
