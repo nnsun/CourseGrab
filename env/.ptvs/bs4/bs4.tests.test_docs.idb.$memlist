@@ -1,7 +1,0 @@
-doctest
-os
-__all__
-atexit
-DOCTEST_FLAGS
-__metaclass__
-unittest

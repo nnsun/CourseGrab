@@ -1,4 +1,0 @@
-gc
-warnings
-error_on_ResourceWarning
-pytest
