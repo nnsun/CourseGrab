@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="CornellCourseGrab" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\nsun2\\OneDrive\\Documents\\CS\ and\ programming\\Projects\\CourseGrab\\CourseGrab\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\nsun2\\OneDrive\\Documents\\CS\ and\ programming\\Projects\\CourseGrab\\CourseGrab\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="InterpreterPath" description="" value="D:\Python27\python.exe" tags="">
+    <parameterEntry kind="TextFile" scope="\\web\.config$" match="%INTERPRETERPATH%" />
+  </parameter>
+  <parameter name="SiteRoot" description="" value="D:\home\site\wwwroot" tags="">
+    <parameterEntry kind="TextFile" scope="\\web\.config$" match="%ROOTDIR%" />
+  </parameter>
+  <parameter name="WFastCgi" description="" value="D:\Python27\Scripts\wfastcgi.py" tags="">
+    <parameterEntry kind="TextFile" scope="\\web\.config$" match="%WFASTCGIPATH%" />
+  </parameter>
+</parameters>

@@ -31,15 +31,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CourseGrab\scripts\run.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="CourseGrab\scripts\check_course.py" />
-    <Compile Include="CourseGrab\scripts\course_num_parser.py" />
-    <Compile Include="CourseGrab\scripts\read_dict.py" />
-    <Compile Include="CourseGrab\scripts\sendmail.py">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="runserver.py" />
     <Compile Include="CourseGrab\__init__.py" />
     <Compile Include="CourseGrab\views.py" />
@@ -149,7 +140,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="CourseGrab\" />
-    <Folder Include="CourseGrab\scripts\" />
     <Folder Include="CourseGrab\static\" />
     <Folder Include="CourseGrab\static\content\" />
     <Folder Include="CourseGrab\static\fonts\" />
@@ -270,13 +260,7 @@
     <Content Include="scripts\requests\structures.pyc" />
     <Content Include="scripts\requests\utils.pyc" />
     <Content Include="scripts\requests\__init__.pyc" />
-    <None Include="CourseGrab - Web Deploy.pubxml" />
-    <None Include="CourseGrab - Web Deploy %282%29.pubxml" />
-    <None Include="CourseGrab - Web Deploy %283%29.pubxml" />
-    <None Include="CornellCourseGrab.pubxml" />
     <None Include="CornellCourseGrab - Web Deploy.pubxml" />
-    <Content Include="CourseGrab\scripts\course_subject_dict.csv" />
-    <Content Include="CourseGrab\scripts\ledger.csv" />
     <Content Include="CourseGrab\static\main.css" />
     <Content Include="CourseGrab\templates\index.html" />
     <Content Include="CourseGrab\templates\success.html" />
