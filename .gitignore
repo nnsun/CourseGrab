@@ -3,3 +3,4 @@ env/
 *.pubxml.user
 *.config
 ptvs_virtualenv_proxy.py
+obj/
