@@ -15,7 +15,7 @@ Winner: best Cornell-related hack
 Honorable mention: Best use of Microsoft Azure
 
 ### Getting Started
-1. Install [Python 2.7](https://www.python.org/downloads/) if haven't already.
+1. Install [Python 2.7](https://www.python.org/downloads/) if you haven't already.
 
 2. You should now have pip installed. Now install virtualenv so you can create a virtual Python environment  
  ```pip install virtualenv```
