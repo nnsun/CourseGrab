@@ -14,20 +14,22 @@ Winner: best Cornell-related hack
 
 Honorable mention: Best use of Microsoft Azure
 
-To run this on a local server:
-
+### Getting Started
 1. Install [Python 2.7](https://www.python.org/downloads/) if haven't already.
 
-2. You should now have pip installed. Now install virtualenv so you can create a virtual Python environment. 
-Run ```pip install virtualenv```
+2. You should now have pip installed. Now install virtualenv so you can create a virtual Python environment  
+ ```pip install virtualenv```
 
-3. Clone the project: ```git clone https://github.com/nnsun/CourseGrab.git```
-```cd CourseGrab```
+3. Clone the project.  
+ ```git clone https://github.com/nnsun/CourseGrab.git```  
+ ```cd CourseGrab```
 
 4. Create a folder for your virtual environment. On Windows this is  this is ```env\scripts\activate```; on Unix run ```. venv/bin/activate```. 
 
-5. Install dependencies in requirements.txt: ```pip install -r requirements.txt```.
+5. Install the dependencies in requirements.txt.  
+ ```pip install -r requirements.txt```.
 
-6. Start the local server: ```python runserver.py```. 
+6. Start the local server.  
+ ```python runserver.py```. 
 
 7. To exit the virtual environment, use ```deactivate```. 
