@@ -3,7 +3,7 @@ A web app built with Flask, Python, HTML, and CSS.
 
 Every Cornell student runs into trouble with the hectic course signup system, adding some very unneeded stress to the semester.
 
-Need to add a course but there are no empty slots? Give us your email address and the five digit courseid of the lecture or discussion you want to join, and we'll email you when the course is open!
+Need to add a course but there are no empty slots? Give us your email address and the five digit course ID of the lecture or discussion you want to join, and we'll email you when the course is open!
 
 Deploying Spring 2017. Temporary hosted at http://cornellcoursegrab.azurewebsites.net/. 
 
@@ -27,9 +27,9 @@ Honorable mention: Best use of Microsoft Azure
 4. Create a folder for your virtual environment. On Windows this is  this is ```env\scripts\activate```; on Unix run ```. venv/bin/activate```. 
 
 5. Install the dependencies in requirements.txt.  
- ```pip install -r requirements.txt```.
+ ```pip install -r requirements.txt```
 
 6. Start the local server.  
- ```python runserver.py```. 
+ ```python runserver.py```
 
 7. To exit the virtual environment, use ```deactivate```. 
