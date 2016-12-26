@@ -5,6 +5,9 @@ import csv
 import read_dict
 
 
+"""
+
+"""
 def check_course(code):
     course_map = read_dict.read_dict()
     code = int(code)

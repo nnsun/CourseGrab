@@ -4,3 +4,4 @@ env/
 *.config
 ptvs_virtualenv_proxy.py
 obj/
+WebJob/email_password.txt

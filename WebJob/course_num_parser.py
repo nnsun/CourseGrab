@@ -2,7 +2,10 @@ import requests
 import bs4
 
 
-# builds a dictionary of with course numbers and subject codes as key/value pairs
+"""
+Builds a dictionary of with course numbers and subject codes as key-value pairs and writes them
+to course_num_map.csv
+"""
 def main():
     course_num_map = {}
 
