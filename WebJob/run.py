@@ -6,6 +6,10 @@ import csv
 import read_dict
 
 
+"""
+Iterates through the database and sends emails to users subscribed
+to newly opened courses
+"""
 with open("ledger.csv", 'rU') as codes:
     code_reader = csv.reader(codes)
     while True:

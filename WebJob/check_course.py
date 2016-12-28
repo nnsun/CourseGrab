@@ -6,7 +6,7 @@ import read_dict
 
 
 """
-
+Returns True if the the the given course code is open, False otherwise. 
 """
 def check_course(code):
     course_map = read_dict.read_dict()

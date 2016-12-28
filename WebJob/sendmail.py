@@ -9,7 +9,7 @@ def send_email(email_address, course_code):
     smtpObj.ehlo()
     smtpObj.starttls()
     # read email password from email_password.txt (not uploaded to source control)
-    with open("email_password.txt", 'r') as password_file:
+    with open("email_password.txt", 'rU') as password_file:
         password = password_file.read()
     smtpObj.login("cornellcoursegrab@gmail.com", password)
     smtpObj.sendmail("cornellcoursegrab@gmail.com", email_address, "Subject: Course number %s is now open!\n" % course_code)
