@@ -10,10 +10,6 @@ import os
 from CourseGrab import app
 
 
-
-
-
-
 #server = "tcp:coursegrabdb.database.windows.net"
 #database = "coursegrabdb"
 #username = "nnsun"
