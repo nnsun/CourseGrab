@@ -5,33 +5,30 @@ Routes and views for the Flask application.
 from datetime import datetime
 from flask import render_template, send_from_directory, request
 from flask_sqlalchemy import SQLAlchemy
-import pyodbc
-import os
 from CourseGrab import app
+from CourseGrab.models.sql_client import Client
 
 
-#server = "tcp:coursegrabdb.database.windows.net"
-#database = "coursegrabdb"
-#username = "nnsun"
-#password = os.getenv("EMAIL_PASSWORD")
-#connection = pyodbc.connect("DRIVER={ODBC Driver 13 for SQL Server};SERVER="
-#                            + server + ";DATABASE=" + database + ";UID=" 
-#                            + username + ";PWD=" + password)
-#cursor = connection.cursor()
 
-
+"""
+Display the home page
+"""
 @app.route('/')
 @app.route('/home')
 def home():
-    """Renders the home page."""
     return render_template('index.html')
 
 
-@app.route('/obey', methods=['POST'])
-def edit_csv():
+"""
+
+"""
+@app.route('/submitted', methods=['POST'])
+def submit_request():
     if request.method == 'POST':
-        with open("WebJob/ledger.csv","a") as fh:
-            fh.write(request.form['email']+","+request.form['course_number']+"\n")
+        email = request.form["email"]
+        course_code = request.form["course_number"]
+        client = Client()
+        client.submit_request(email, course_code)
         return render_template("success.html")
 
 
