@@ -11,9 +11,17 @@ class Client(object):
                             % (server, database, username, password))
         self.cursor = self.connection.cursor()
     
+    def create_user(self, name, email, phone_number, send_email):
+        command = "INSERT INTO Users(Name, Email, PhoneNumber, SendEmail) VALUES (?, ?, ?, ?, 0)"
+        values = [name, email, phone_number, send_email]
+        self.cursor.execute(command, values)
+        self.connection.commit()
+        self.connection.close()
+
     def submit_request(self, email, course_code):
         command = "INSERT INTO NotifierMap(Email, CourseNumber) VALUES (?, ?)"
         values = [email, course_code]
         self.cursor.execute(command, values)
         self.connection.commit()
         self.connection.close()
+

@@ -4,7 +4,6 @@ Routes and views for the Flask application.
 
 from datetime import datetime
 from flask import render_template, send_from_directory, request
-from flask_sqlalchemy import SQLAlchemy
 from CourseGrab import app
 from CourseGrab.models.sql_client import Client
 
@@ -31,6 +30,41 @@ def submit_request():
         client.submit_request(email, course_code)
         return render_template("success.html")
 
+@app.route('/contact')
+def contact():
+    """Renders the contact page."""
+    return render_template(
+        'contact.html',
+        title='Contact',
+        year=datetime.now().year,
+        message='Your contact page.'
+    )
+
+@app.route('/about')
+def about():
+    """Renders the about page."""
+    return render_template(
+        'about.html',
+        title='About',
+        year=datetime.now().year,
+        message='Your application description page.'
+    )
+
+@app.route('/log_in')
+def log_in():
+    return render_template('log_in.html')
+
+@app.route('/sign_up')
+def sign_up():
+    return render_template('sign_up.html')
+
+#@apply.route('/signup')
+#def signup():
+#    if request.method == 'GET':
+#        name = request.form["email"]
+#        email = request.form["email"]
+#        phone_number = request.form["phone_number"]
+#        send_email = True
 
 
     # the code below is executed if the request method
