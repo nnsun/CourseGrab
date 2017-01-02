@@ -11,9 +11,9 @@ class Client(object):
                             % (server, database, username, password))
         self.cursor = self.connection.cursor()
     
-    def create_user(self, name, email, phone_number, send_email):
-        command = "INSERT INTO Users(Name, Email, PhoneNumber, SendEmail) VALUES (?, ?, ?, ?, 0)"
-        values = [name, email, phone_number, send_email]
+    def create_user(self, name, email, password, phone_number, send_email):
+        command = "INSERT INTO Users(Name, Email, Password, PhoneNumber, SendEmail) VALUES (?, ?, ?, ,?, ?, 0)"
+        values = [name, email, phone_number, password, send_email]
         self.cursor.execute(command, values)
         self.connection.commit()
         self.connection.close()
@@ -24,4 +24,3 @@ class Client(object):
         self.cursor.execute(command, values)
         self.connection.commit()
         self.connection.close()
-
