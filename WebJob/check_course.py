@@ -3,7 +3,7 @@ import requests
 import bs4
 import csv
 import read_dict
-
+import pyodbc
 
 """
 Returns True if the the the given course code is open, False otherwise. 

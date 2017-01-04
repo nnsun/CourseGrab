@@ -8,7 +8,6 @@ from CourseGrab import app
 from CourseGrab.models.sql_client import Client
 
 
-
 """
 Display the home page
 """
@@ -31,6 +30,7 @@ def submit_request():
         client.connection.close()
         return render_template("success.html")
 
+
 @app.route('/contact')
 def contact():
     """Renders the contact page."""
@@ -40,6 +40,7 @@ def contact():
         year=datetime.now().year,
         message='Your contact page.'
     )
+
 
 @app.route('/about')
 def about():
@@ -51,17 +52,21 @@ def about():
         message='Your application description page.'
     )
 
+
 @app.route('/sign_up')
 def sign_up():
     return render_template('sign_up.html')
+
 
 @app.route('/sign_in')
 def sign_in():
     return render_template('sign_in.html')
 
+
 @app.errorhandler(404)
 def page_not_found(e):
     return "404 error", 404
+
 
 @app.errorhandler(500)
 def internal_server_error(e):
