@@ -28,6 +28,7 @@ def submit_request():
         course_code = request.form["course_number"]
         client = Client()
         client.submit_request(email, course_code)
+        client.connection.close()
         return render_template("success.html")
 
 @app.route('/contact')

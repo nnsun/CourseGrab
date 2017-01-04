@@ -1,7 +1,7 @@
 import check_course
 import sys
 sys.path.append("site-packages")
-import sendmail
+import send_email
 import csv
 import read_dict
 
@@ -18,6 +18,6 @@ with open("ledger.csv", 'rU') as codes:
             email = code_line[0]
             code = code_line[1]
             if check_course.check_course(code):
-                sendmail.send_email(email, code)
+                send_email.send(email, code)
         except StopIteration:
             break

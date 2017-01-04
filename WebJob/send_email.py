@@ -4,7 +4,7 @@ import smtplib
 """
 Sends an email to email_address notifying the user that course_code is now open
 """
-def send_email(email_address, course_code):
+def send(email_address, course_code):
     smtpObj = smtplib.SMTP("smtp.gmail.com", 587)
     smtpObj.ehlo()
     smtpObj.starttls()
