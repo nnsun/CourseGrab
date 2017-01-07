@@ -1,0 +1,41 @@
+body {
+    /*background: #3E4649;*/
+    /*color: #f7f7f7;*/
+    font-family: 'Montserrat', sans-serif;
+}
+
+h2 {
+    font-weight: bold;
+}
+.footer {
+    margin-bottom: 0;
+}
+.jumbotron {
+    background: #2E2F31;
+    color: white;
+    text-align: center;
+}
+.jumbotron p {
+    color: white;
+}
+.navbar-inverse .navbar-nav li a:hover {
+    background: #2E2F31;
+}
+.btn-primary {
+    color: #fff;
+    background-color: transparent;
+    border-color: white;
+    margin-bottom: 5px;
+}
+.btn-primary:hover {
+    color: #2E2F31;
+    background-color: white;
+    border-color: white;
+}
+.navbar {
+    margin-bottom: 0;
+}
+.navbar-inverse {
+    background: #DC2A2A;
+    border: 0;
+}
