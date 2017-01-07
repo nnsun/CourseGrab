@@ -2,33 +2,50 @@
 
 {% block content %}
 
-<h1>
-    Cornell CourseGrab
-</h1>
-<p>
-    Welcome to Cornell CourseGrab! <br> Give us your email address and the course ID of the class you want, and we'll send you an email
-    when it's open. <br> That's it!
-</p>
 
-<form class="form-horizontal" action="submitted" method="post">
-    <div class="form-group">
-        <input type="email" class="form-control" placeholder="Email" name="email">
+<div class="jumbotron">
+    <div class="container">
+        <h1>Cornell CourseGrab</h1>
+        <p>Give us the course ID of a class you want, and we'll notify you when there's an empty slot.
+        </p>
+
+        <form class="form-inline" role="form" action="submitted" method="post">
+            <div class="form-group">
+                <input type="number" data-bind="value:replyNumber" min="0" class="form-control" id="inputCourseID" placeholder="Course ID">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Course</button>
+        </form>
+        <p id="disclaimer">
+            Don't know what the course ID of your discussion is? <br>Find it at the
+            <a href='https://classes.cornell.edu/browse/roster/SP17'>class roster.</a>
+        </p>
     </div>
-    <div class="form-group">
-        <input type="number" class="form-control" placeholder="Course ID" size="20" name="course_number">
-    </div>
-    <div class="form-group">
-        <button type=submit class="btn btn-large btn-primary form-control">Submit</button>
-    </div>
-</form>
-
-<p id="disclaimer">
-    Don't know what the course ID of your discussion is? <br>Find it at the
-    <a href='https://classes.cornell.edu/browse/roster/SP17'>class roster.</a>
-</p>
-<br><br><br><br><br><br>
-
-
-
+</div>
+<div class="container">
+    <h2>Course IDs You're Tracking</h2>
+    <p>Click the button next to the course ID to stop tracking it</p>
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Course ID</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>12345</td>
+            <td>button placeholder</td>
+        </tr>
+        <tr>
+            <td>12345</td>
+            <td>button placeholder</td>
+        </tr>
+        <tr>
+            <td>12345</td>
+            <td>button placeholder</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
 
 {% endblock %}

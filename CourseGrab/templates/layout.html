@@ -3,10 +3,12 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} - My Flask Application</title>
-    <link rel="stylesheet" type="text/css" href="/static/content/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="/static/content/site.css" />
-    <script src="/static/scripts/modernizr-2.6.2.js"></script>
+    <title>{{ title }} Cornell CourseGrab</title>
+    <link rel="stylesheet" type="text/css" href="../static/content/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="../static/content/site.css" />
+    <link rel="stylesheet" type="text/css" href="../static/custom.css"/>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    <script src="../static/scripts/modernizr-2.6.2.js"></script>
 </head>
 
 <body>
@@ -20,11 +22,9 @@
                 </button>
                 <a href="/" class="navbar-brand">Cornell CourseGrab</a>
             </div>
-            <div class="navbar-collapse collapse">
+            <div class="nav navbar-nav navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('about') }}">About</a></li>
-                    <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                    <li><a href="{{ url_for('home') }}">Track Courses</a></li>
                     <li><a href="{{ url_for('sign_up') }}">Sign up</a></li>
                     <li><a href="{{ url_for('sign_in') }}">Sign in</a></li>
                 </ul>
@@ -37,15 +37,14 @@
         <hr />
         <footer class="footer">
             <p id="bottom">
-                A BigRed//Hacks 2016 Project<br>
-                by Chase Thomas and Ning Ning Sun
+                A BigRed//Hacks 2016 Project by Ning Ning Sun and Chase Thomas
             </p>
         </footer>
     </div>
 
-    <script src="/static/scripts/jquery-1.10.2.js"></script>
-    <script src="/static/scripts/bootstrap.js"></script>
-    <script src="/static/scripts/respond.js"></script>
+    <script src="../static/scripts/jquery-1.10.2.js"></script>
+    <script src="../static/scripts/bootstrap.js"></script>
+    <script src="../static/scripts/respond.js"></script>
     {% block scripts %}{% endblock %}
 
 </body>
