@@ -63,6 +63,11 @@ def sign_in():
     return render_template('sign_in.html')
 
 
+@app.errorhandler(400)
+def bad_request(e):
+    return "400 error", 400
+
+
 @app.errorhandler(404)
 def page_not_found(e):
     return "404 error", 404
