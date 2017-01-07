@@ -1,6 +1,7 @@
 import os
 import pyodbc
-
+import check_course
+import send_email
 
 """
 Connects to the SQL database like /CourseGrab/models/sql_client.py, but
@@ -21,5 +22,12 @@ class Client(object):
     
     def poll_courses(self):
         """Returns a list of subscribed course numbers that correspond to newly open courses"""
-        command = "SELECT DISTINCT CourseNum FROM Users"
-        self.cursor.execute(command)
+        users_command = "SELECT UserID, Email, DISTINCT CourseNum FROM Users ORDER BY CourseNum"
+        self.cursor.execute(users_command)
+        row = self.cursor.fetchone()
+        while row is not None:
+            course_command = "SELECT CourseNum, CheckStatus FROM Courses WHERE CourseNum = ?"
+            course_value = [row.CourseNum]
+            self.cursor.execute(course_command, course_value)
+
+            row = self.cursor.fetchone()
