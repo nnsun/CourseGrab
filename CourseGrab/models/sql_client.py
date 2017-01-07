@@ -6,7 +6,7 @@ class Client(object):
         server = "tcp:coursegrabdb.database.windows.net"
         database = "coursegrabdb"   
         username = "nnsun"
-        password = os.getenv("EMAIL_PASSWORD")
+        password = os.getenv("DB_PASSWORD")
         self.connection = pyodbc.connect("DRIVER={ODBC Driver 13 for SQL Server};SERVER=%s;DATABASE=%s;UID=%s;PWD=%s"
                             % (server, database, username, password))
         self.cursor = self.connection.cursor()
@@ -27,7 +27,7 @@ class Client(object):
 
     def submit_request(self, email, course_number):
         # TODO: allow each user to only subscribe to one course at a time for now
-        command = "INSERT INTO Subscriptions(Email, CourseNumber) VALUES (?, ?)"
+        command = "INSERT INTO Subscriptions (Email, CourseNumber) VALUES (?, ?)"
         values = [email, course_number]
         self.cursor.execute(command, values)
         self.connection.commit()

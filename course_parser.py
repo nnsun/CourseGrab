@@ -25,7 +25,7 @@ def main():
     subjects_page = "https://classes.cornell.edu/browse/roster/SP17/subject/"
     for subject_code in subject_list:
         print subject_code
-        subject_request = requests.get("http://classes.cornell.edu/browse/roster/SP17/subject/" + subject_code)
+        subject_request = requests.get(subjects_page + subject_code)
         subject_bs4 = bs4.BeautifulSoup(subject_request.text, "html.parser")
         course_code_tags = subject_bs4.find_all("strong", class_="tooltip-iws")
         for tag in course_code_tags:
