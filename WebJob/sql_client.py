@@ -18,16 +18,3 @@ class Client(object):
         self.connection = pyodbc.connect("DRIVER={ODBC Driver 13 for SQL Server};SERVER=%s;DATABASE=%s;UID=%s;PWD=%s"
                             % (server, database, username, password))
         self.cursor = self.connection.cursor()
-
-    
-    def poll_courses(self):
-        """Returns a list of subscribed course numbers that correspond to newly open courses"""
-        users_command = "SELECT UserID, Email, DISTINCT CourseNum FROM Users ORDER BY CourseNum"
-        self.cursor.execute(users_command)
-        row = self.cursor.fetchone()
-        while row is not None:
-            course_command = "SELECT CourseNum, CheckStatus FROM Courses WHERE CourseNum = ?"
-            course_value = [row.CourseNum]
-            self.cursor.execute(course_command, course_value)
-
-            row = self.cursor.fetchone()

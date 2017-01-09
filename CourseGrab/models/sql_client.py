@@ -16,6 +16,7 @@ class Client(object):
         command = "INSERT INTO Courses (CourseNum, SubjectCode, SendStatus) VALUES (?, ?, 1)"
         values = [course_num, subject_code]
         self.cursor.execute(command, values)
+        self.cursor.commit()
 
     
     def create_user(self, name, email, password, phone_number, send_email):
@@ -26,7 +27,6 @@ class Client(object):
 
 
     def submit_request(self, email, course_number):
-        # TODO: allow each user to only subscribe to one course at a time for now
         command = "INSERT INTO Subscriptions (Email, CourseNumber) VALUES (?, ?)"
         values = [email, course_number]
         self.cursor.execute(command, values)
