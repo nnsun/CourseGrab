@@ -37,20 +37,32 @@
     }
 </style>
 
-<div class="container well">
-    <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="email_input" class="sr-only">Email address</label>
-        <input type="email" id="email_input" class="form-control" placeholder="Email address" required autofocus />
-        <label for="password_input" class="sr-only">Password</label>
-        <input type="password" id="password_input" class="form-control" placeholder="Password" required />
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me" /> Remember Me
-            </label>
-        </div>
-        <button class="btn btn-large btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-</div>
+<head>
+    <meta name="google-signin-client_id" content="676925479214-9pvc8mn88dp46cl5dothrmbt5efvfjth.apps.googleusercontent.com">
+</head>
+<body>
+    <div id="my-signin2"></div>
+    <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+    </script>
+
+    <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+</body>
 
 {% endblock %}
