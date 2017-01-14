@@ -1,25 +1,34 @@
 body {
-    /*background: #3E4649;*/
-    /*color: #f7f7f7;*/
     font-family: 'Montserrat', sans-serif;
+    background:
+            linear-gradient(
+                    rgba(0, 0, 0, 0.5),
+                    rgba(0, 0, 0, 0.5)
+            ),
+            url(/static/images/mcgraw.jpg);
+    background-size: cover;
 }
-
-h2 {
-    font-weight: bold;
-}
-.footer {
+.navbar {
     margin-bottom: 0;
 }
-.jumbotron {
-    background: #2E2F31;
-    color: white;
-    text-align: center;
-}
-.jumbotron p {
+.navbar-inverse {
+    border: 0;
     color: white;
 }
 .navbar-inverse .navbar-nav li a:hover {
     background: #2E2F31;
+}
+.jumbotron {
+    text-align: center;
+    background-color: transparent;
+    margin-bottom: 0;
+}
+.jumbotron p {
+    color: white;
+}
+
+.jumbotron h1 {
+    color: white;
 }
 .btn-primary {
     color: #fff;
@@ -32,10 +41,14 @@ h2 {
     background-color: white;
     border-color: white;
 }
-.navbar {
-    margin-bottom: 0;
+.tracking {
+    /*background: #2E2F31;*/
+    /*color: white;*/
+    background: rgba(0, 0, 0, 0.25);
+    color: white;
 }
-.navbar-inverse {
-    background: #DC2A2A;
-    border: 0;
+
+.footer {
+    margin-bottom: 0;
+    color: white;
 }
