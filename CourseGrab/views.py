@@ -23,10 +23,9 @@ def home():
 @app.route('/submitted', methods=['POST'])
 def submit_request():
     if request.method == 'POST':
-        email = request.form["email"]
         course_code = request.form["course_number"]
         client = Client()
-        client.submit_request(email, course_code)
+        client.submit_request("nsun200@live.com", course_code)
         client.connection.close()
         return render_template("success.html")
 
@@ -51,12 +50,6 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
-
-
-@app.route('/sign_up')
-def sign_up():
-    return render_template('sign_up.html')
-
 
 @app.route('/sign_in')
 def sign_in():

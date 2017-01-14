@@ -27,7 +27,21 @@ class Client(object):
 
 
     def submit_request(self, email, course_number):
-        command = "INSERT INTO Subscriptions (Email, CourseNumber) VALUES (?, ?)"
-        values = [email, course_number]
-        self.cursor.execute(command, values)
+        command = "SELECT * FROM Users WHERE Email = ?"
+        self.cursor.execute(command, email)
+        row = self.cursor.fetchone();
+        if row is None:
+            command = "INSERT INTO Users (Email, Subscription_1, TrackStatus_1) VALUES (?, ?, 1)"
+            self.cursor.execute(command, email, course_number)
+        elif row.Subscription_1 is None:
+            command = "UPDATE Users SET Subscription_1 = ?, TrackStatus_1 = 1"
+            self.cursor.execute(command, course_number)
+        elif row.Subscription_2 is None:
+            command = "UPDATE Users SET Subscription_2 = ?, TrackStatus_2 = 1"
+            self.cursor.execute(command, course_number)
+        elif row.Subscription_3 is None:
+            command = "UPDATE Users SET Subscription_3 = ?, TrackStatus_2 = 1"
+            self.cursor.execute(command, course_number)
+        else:
+            raise UserWarning("User can not track more than three courses at a time.")
         self.connection.commit()
