@@ -21,18 +21,17 @@ class Client(object):
     
     def create_user(self, name, email, password, phone_number, send_email):
         command = "INSERT INTO Users (Name, Email, Password, PhoneNumber, SendEmail) VALUES (?, ?, ?, ,?, ?, 0)"
-        values = [name, email, phone_number, password, send_email]
-        self.cursor.execute(command, values)
+        self.cursor.execute(command, [name, email, phone_number, password, send_email])
         self.connection.commit()
 
 
-    def submit_request(self, email, course_number):
+    def submit_request(self, id, email, course_number):
         command = "SELECT * FROM Users WHERE Email = ?"
         self.cursor.execute(command, email)
         row = self.cursor.fetchone();
         if row is None:
-            command = "INSERT INTO Users (Email, Subscription_1, TrackStatus_1) VALUES (?, ?, 1)"
-            self.cursor.execute(command, email, course_number)
+            command = "INSERT INTO Users (UserID, Email, Subscription_1, TrackStatus_1) VALUES (?, ?, ?, 1)"
+            self.cursor.execute(command, [id, email, course_number])
         elif row.Subscription_1 is None:
             command = "UPDATE Users SET Subscription_1 = ?, TrackStatus_1 = 1"
             self.cursor.execute(command, course_number)
