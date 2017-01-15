@@ -6,9 +6,7 @@
 <div class="jumbotron lander">
     <div class="container">
         <h1>Cornell CourseGrab</h1>
-        <p>Tell us the course ID of a class you want, and we'll notify you as soon as there's an empty slot.
-        </p>
-
+        <p>Tell us the course ID of a class you want, and we'll notify you as soon as there's an empty slot.</p>
         <form class="form-inline" role="form" action="submitted" method="post">
             <div class="form-group">
                 <input type="number" data-bind="value:replyNumber" min="0" class="form-control" id="inputCourseID" placeholder="Course ID" name="course_number">
@@ -22,30 +20,32 @@
     </div>
 </div>
 <div class="container tracking">
-    <h2>Course IDs You're Tracking</h2>
-    <p>Click the button next to the course ID to stop tracking it</p>
-    <table class="table table-hover">
-        <thead>
-        <tr>
-            <th>Course ID</th>
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>12345</td>
-            <td>button placeholder</td>
-        </tr>
-        <tr>
-            <td>12345</td>
-            <td>button placeholder</td>
-        </tr>
-        <tr>
-            <td>12345</td>
-            <td>button placeholder</td>
-        </tr>
-        </tbody>
-    </table>
+    {% if "access_token" in session %}
+        <h2>Course IDs You're Tracking</h2>
+        <p>Click the button next to the course ID to stop tracking it</p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                    <tr>
+                        <td>{{course}}</td>
+                        <td>
+                            <form action='remove/{{course}}' method="post">
+                                <button type="submit" class="btn btn-default">
+                                    Remove
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
 </div>
 
 {% endblock %}
