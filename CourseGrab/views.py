@@ -13,8 +13,8 @@ from CourseGrab import google
 @app.route('/')
 @app.route('/home')
 def index():
-    access_token = session.get('access_token')
     courses = None
+    access_token = session.get('access_token')
     if access_token is not None:
         user_dict = get_user_dict()
         user_id = user_dict["id"]
@@ -44,15 +44,18 @@ def get_access_token():
 
 @app.route('/submitted', methods = ['POST'])
 def submit_request():
-    user_dict = get_user_dict()
-    user_id = user_dict["id"]
-    user_email = user_dict["email"]
+    if session.get('access_token') is None:
+        return redirect(url_for('sign_in'))
+    else:
+        user_dict = get_user_dict()
+        user_id = user_dict["id"]
+        user_email = user_dict["email"]
 
-    course_code = request.form["course_number"]
-    client = Client()
-    client.submit_request(user_id, user_email, course_code)
-    client.connection.close()
-    return render_template("success.html")
+        course_code = request.form["course_number"]
+        client = Client()
+        client.submit_request(user_id, user_email, course_code)
+        client.connection.close()
+    return redirect(url_for('index'))
 
 
 @app.route('/remove/<int:course_num>', methods = ['POST'])

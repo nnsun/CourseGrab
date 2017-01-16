@@ -24,8 +24,6 @@
             </div>
             <div class="nav navbar-nav navbar-right">
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url_for('index') }}">Track Courses</a></li>
-
                     {% if "access_token" in session %}
                         <li><a href="{{ url_for('sign_out') }}">Sign out</a></li>
                     {% else %}

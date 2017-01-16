@@ -11,7 +11,7 @@ import os
 app = Flask(__name__,static_folder='static')
 
 # comment this out when debugging locally
-# sslify = SSLify(app)
+#sslify = SSLify(app)
 
 app.secret_key = ''.join(random.choice(string.ascii_uppercase + string.digits) for x in xrange(32))
 oauth = OAuth()
