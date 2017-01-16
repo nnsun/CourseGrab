@@ -48,6 +48,10 @@ body {
     color: white;
 }
 
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+    background-color: rgba(0, 0, 0, 0.20);
+}
+
 .footer {
     margin-bottom: 0;
     color: white;
