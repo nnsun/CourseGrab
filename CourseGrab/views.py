@@ -45,6 +45,8 @@ def get_access_token():
 @app.route('/submitted', methods = ['POST'])
 def submit_request():
     if session.get('access_token') is None:
+        # need to notify user to sign in. Right now it's redirecting to sign in, but
+        # the entered course isn't being tracked.
         return redirect(url_for('sign_in'))
     else:
         user_dict = get_user_dict()

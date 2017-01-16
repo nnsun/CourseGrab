@@ -52,3 +52,13 @@ body {
     margin-bottom: 0;
     color: white;
 }
+
+/*Disables the spin box on the number field*/
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
