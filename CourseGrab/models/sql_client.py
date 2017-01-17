@@ -17,6 +17,8 @@ class Client(object):
         command = "SELECT Subscription_1, Subscription_2, Subscription_3 FROM Users WHERE UserID = ?"
         self.cursor.execute(command, id)
         courses = self.cursor.fetchone()
+        if courses is None:
+            return []
         courses = [x for x in courses if x is not None]
         return courses
 
