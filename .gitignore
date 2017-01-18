@@ -1,7 +1,8 @@
-CourseGrab/env/
+env/
 *.pubxml
 *.config
 *.user
 ptvs_virtualenv_proxy.py
 obj/
-CourseGrab/WebJob/cron.zip
+cron.zip
+appsettings.json

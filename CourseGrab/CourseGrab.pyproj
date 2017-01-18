@@ -37,6 +37,12 @@
     <Compile Include="runserver.py" />
     <Compile Include="CourseGrab\__init__.py" />
     <Compile Include="CourseGrab\views.py" />
+    <Compile Include="tests\create_users.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="tests\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="WebJob\bs4\builder\_html5lib.py" />
     <Compile Include="WebJob\bs4\builder\_htmlparser.py" />
     <Compile Include="WebJob\bs4\builder\_lxml.py" />
@@ -149,6 +155,7 @@
     <Folder Include="CourseGrab\static\images\" />
     <Folder Include="CourseGrab\static\scripts\" />
     <Folder Include="CourseGrab\templates\" />
+    <Folder Include="tests\" />
     <Folder Include="WebJob\" />
     <Folder Include="WebJob\bs4\" />
     <Folder Include="WebJob\bs4\builder\" />

@@ -30,7 +30,8 @@ def main():
         course_code_tags = subject_bs4.find_all("strong", class_="tooltip-iws")
         for tag in course_code_tags:
             course_num = int(tag.getText().strip())
-            client.add_course(course_num, subject_code)
+            command = "INSERT INTO Courses (CourseNum, SubjectCode, CheckStatus) VALUES (?, ?, 1)"
+            client.cursor.execute(command, [course_num, subject_code])
     client.connection.commit()
     client.connection.close()
 

@@ -13,7 +13,6 @@ class Client(object):
 
 
     def get_courses(self, id):
-        print id
         command = "SELECT Subscription_1, Subscription_2, Subscription_3 FROM Users WHERE UserID = ?"
         self.cursor.execute(command, id)
         courses = self.cursor.fetchone()

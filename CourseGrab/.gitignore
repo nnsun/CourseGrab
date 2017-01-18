@@ -1,7 +1,0 @@
-env/
-*.pubxml
-*.pubxml.user
-*.config
-ptvs_virtualenv_proxy.py
-obj/
-WebJob/cron.zip
