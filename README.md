@@ -1,5 +1,4 @@
 # CourseGrab
-A web app built with Flask, Python, HTML, and CSS.
 
 Every Cornell student runs into trouble with the hectic course signup system, adding some very unneeded stress to the semester.
 
@@ -24,7 +23,7 @@ Honorable mention: Best use of Microsoft Azure
  ```git clone https://github.com/nnsun/CourseGrab.git```  
  ```cd CourseGrab```
 
-4. Create a folder for your virtual environment. On Windows this is  this is ```env\scripts\activate```; on Unix run ```. venv/bin/activate```. 
+4. Create a folder for your virtual environment. On Windows this is  this is ```env\scripts\activate```; on Unix run ```. env/bin/activate```. 
 
 5. Install the dependencies in requirements.txt.  
  ```pip install -r requirements.txt```
