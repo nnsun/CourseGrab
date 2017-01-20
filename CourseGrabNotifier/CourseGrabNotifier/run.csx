@@ -112,7 +112,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
         foreach (KeyValuePair<string, List<int>> pair in subjectCourseDict)
         {
-            List<bool> courseStatuses = CheckSubjectCourses(pair, log);
+            List<bool> courseStatuses = CheckSubjectCourses(pair);
             for (int i = 0; i < courseStatuses.Count; i++)
             {
                 if (courseStatuses[i])
@@ -209,7 +209,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
             sql = $@"UPDATE Courses SET CheckStatus = 0 WHERE CourseNum in {fullCoursesStr};
             UPDATE Users SET TrackStatus_1 = 1 WHERE Subscription_1 IN {fullCoursesStr};
             UPDATE Users SET TrackStatus_2 = 1 WHERE Subscription_2 IN {fullCoursesStr};
-            UPDATE Users SET TraackStatus_3 = 1 WHERE Subscription_3 in {fullCoursesStr}";
+            UPDATE Users SET TrackStatus_3 = 1 WHERE Subscription_3 in {fullCoursesStr}";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.ExecuteNonQuery();
@@ -222,7 +222,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 
 
-public static List<bool> CheckSubjectCourses(KeyValuePair<string, List<int>> courses, TraceWriter log)
+public static List<bool> CheckSubjectCourses(KeyValuePair<string, List<int>> courses)
 {
     string url = $"http://classes.cornell.edu/browse/roster/SP17/subject/{courses.Key}";
     HtmlWeb htmlWeb = new HtmlWeb();
@@ -234,21 +234,21 @@ public static List<bool> CheckSubjectCourses(KeyValuePair<string, List<int>> cou
                                         int.Parse(
                                             Regex.Replace(x.InnerHtml, @"\D", "")))).ToArray();
 
-    log.Info(courseNumNodes.Count().ToString());
-    //foreach (HtmlNode node in courseNumNodes)
-    //{
-    //    string r = Regex.Replace(node.InnerHtml, @"\D", "");
-    //    log.Info(r);
-    //}
-
-    List<bool> courseStatuses = new List<bool>();
-    foreach (int courseNum in courses.Value)
+    List<bool> statuses = new List<bool>();
+    foreach (HtmlNode courseNumNode in courseNumNodes)
     {
-        //HtmlNode node = courseNumNode.Where(x => x.InnerHtml == courseNum.ToString()).First();
+        string status = courseNumNode.ParentNode.ParentNode.ParentNode.SelectNodes(
+                                        "//i").First().Attributes["class"].Value;
+        if (status.Contains("open-status-open"))
+        {
+            statuses.Add(true);
+        }
+        else
+        {
+            statuses.Add(false);
+        }
     }
-
-
-    return courseStatuses;
+    return statuses;
 }
 
 
