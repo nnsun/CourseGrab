@@ -19,9 +19,6 @@ def main():
     for tag in subject_tags:
         subject_list.append(str(tag.getText()))
 
-    s = open("test.txt", 'w')
-    for subject in subject_list:
-        s.write(subject + '\n')
     subjects_page = "https://classes.cornell.edu/browse/roster/SP17/subject/"
     for subject_code in subject_list:
         print subject_code
