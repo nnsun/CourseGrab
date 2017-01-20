@@ -6,3 +6,4 @@ ptvs_virtualenv_proxy.py
 obj/
 cron.zip
 appsettings.json
+project.lock.json

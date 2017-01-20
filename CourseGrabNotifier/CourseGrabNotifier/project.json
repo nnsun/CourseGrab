@@ -2,6 +2,7 @@
   "frameworks": {
     "net46":{
       "dependencies": {
+        "HtmlAgilityPack":  "1.4.9.5"
       }
     }
   }
