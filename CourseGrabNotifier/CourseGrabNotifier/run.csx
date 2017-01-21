@@ -5,13 +5,17 @@ using System;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Threading.Tasks;
 using System.Collections.Generic;
 using System.Text;
 using System.Net;
-using System.Diagnostics;
+using System.Net.Http;
+using System.Net.Mail;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 using HtmlAgilityPack;
+using SendGrid;
+using SendGrid.Helpers.Mail;
+using System.Diagnostics;
 
 
 public static void Run(TimerInfo myTimer, TraceWriter log)
@@ -19,6 +23,8 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
     Stopwatch clock = Stopwatch.StartNew();
 
     string password = Environment.GetEnvironmentVariable("DB_PASSWORD");
+    string apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
+
     string connectionString = $@"Server=tcp:coursegrabdb.database.windows.net,1433;
                                 Initial Catalog=CourseGrabDB;Persist Security Info=False;
                                 User ID=nnsun;Password={password};MultipleActiveResultSets=False;
@@ -150,7 +156,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1));
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
                     }
                 }
             }
@@ -167,7 +173,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1));
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
                     }
                 }
             }
@@ -184,7 +190,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1));
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
                     }
                 }
             }
@@ -222,7 +228,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 
 
-public static List<bool> CheckSubjectCourses(KeyValuePair<string, List<int>> courses)
+private static List<bool> CheckSubjectCourses(KeyValuePair<string, List<int>> courses)
 {
     string url = $"http://classes.cornell.edu/browse/roster/SP17/subject/{courses.Key}";
     HtmlWeb htmlWeb = new HtmlWeb();
@@ -252,7 +258,18 @@ public static List<bool> CheckSubjectCourses(KeyValuePair<string, List<int>> cou
 }
 
 
-public static void SendEmail(string email, int courseNum)
+private static async Task SendEmail(string email, int courseNum, string apiKey, TraceWriter log)
 {
+    dynamic sg = new SendGridAPIClient(apiKey);
+    Email from = new Email("test@example.com");
+    Email to = new Email(email);
+    string subject = "Test";
+    Content content = new Content("text/plain", "Test email");
+    Mail mail = new Mail(from, subject, to, content);
+
+    dynamic response = await sg.client.mail.send.post(requestBody: mail.Get());
+    log.Info(response.StatusCode.ToString());
+    log.Info(response.Body.ReadAsStringAsync().Result.ToString());
+    log.Info(response.Headers.ToString());
 
 }
