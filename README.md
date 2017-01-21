@@ -6,14 +6,20 @@ Need to add a course but there are no empty slots? Give us your email address an
 
 Deploying Spring 2017. Temporary hosted at http://cornellcoursegrab.azurewebsites.net/. 
 
-Built for Big Red Hacks 2016
+Built for BigRed//Hacks 2016
 by Chase Thomas and Ning Ning Sun
 
-Winner: best Cornell-related hack
+Winner: best Cornell-related hack, awarded by Andreessen Horowitz
+Honorable mention: best use of Microsoft Azure, awarded by Microsoft
 
-Honorable mention: Best use of Microsoft Azure
+## Getting started
 
-### Getting Started
+This project is entirely hosted on Microsoft Azure. It consists of two parts. 
+The webapp code, which is written in Flask, is located in the /CourseGrab folder. It has basic Google authentication and allows the user to track up to three courses. 
+The time-triggered notifier app is in /CourseGrabNotifier and is written in C#. This is deployed using Azure Functions. Every minute, it will check the statuses of all tracked courses. For all open courses, it will send a notification email to any users who are tracking it and haven't already been notified about the particular opening. That way, a user will not get spammed by emails for the same course in a short period of time. If a particular open course becomes closed but opens up at a later time, users will be notified again. 
+
+### Running the webapp on localhost
+
 1. Install [Python 2.7](https://www.python.org/downloads/) if you haven't already.
 
 2. You should now have pip installed. Now install virtualenv so you can create a virtual Python environment  
@@ -23,12 +29,20 @@ Honorable mention: Best use of Microsoft Azure
  ```git clone https://github.com/nnsun/CourseGrab.git```  
  ```cd CourseGrab```
 
-4. Create a folder for your virtual environment. On Windows this is  this is ```env\scripts\activate```; on Unix run ```. env/bin/activate```. 
+4. Create a folder for your virtual environment inside the webapp folder. 
+```cd CourseGrab```
+```virtualenv env```
 
-5. Install the dependencies in requirements.txt.  
+5. Enter the virtual environment. Use ```env\Scripts\activate``` on Windows; on Unix, use ```. env/bin/activate```.
+
+6. Install the dependencies in requirements.txt.  
  ```pip install -r requirements.txt```
 
-6. Start the local server.  
- ```python runserver.py```
+7. Set up your environment variables. CourseGrab uses a SQL database hosted in Azure, as well as a Google client secret. These are accessed via environment variables in order to avoid storing the credentials publically online. ODBC is used to connect to the database in /CourseGrab/CourseGrab/models/sql_client.py, and the variables are as follows: ```DB_SERVER```, the database address; ```DB_NAME```, the name of the database; ```DB_USERNAME```, the username; and ```DB_PASSWORD```, the password.
 
-7. To exit the virtual environment, use ```deactivate```. 
+The Google OAuth 2.0 client secret is used in /CourseGrab/CourseGrab/__init__.py, and is defined as ```GOOGLE_CLIENT_SECRET```.
+
+8. Start the local server.  
+ ```python runserver.py```
+ 
+9. To exit the virtual environment, use ```deactivate```.
