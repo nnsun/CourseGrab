@@ -38,9 +38,9 @@ The time-triggered notifier app is in /CourseGrabNotifier and is written in C#. 
 6. Install the dependencies in requirements.txt.  
  ```pip install -r requirements.txt```
 
-7. Set up your environment variables. CourseGrab uses a SQL database hosted in Azure, as well as a Google client secret. These are accessed via environment variables in order to avoid storing the credentials publically online. 
-ODBC is used to connect to the database in /CourseGrab/CourseGrab/models/sql_client.py, and the variables are as follows: ```DB_SERVER```, the database address; ```DB_NAME```, the name of the database; ```DB_USERNAME```, the username; and ```DB_PASSWORD```, the password.
-The Google OAuth 2.0 client secret is used in /CourseGrab/CourseGrab/\_\_init\_\_.py, and is defined as ```GOOGLE_CLIENT_SECRET```.
+7. Set up your environment variables. CourseGrab uses a SQL database hosted in Azure, as well as a Google client secret and a SendGrid API key for sending notification emails. These are accessed via environment variables in order to avoid storing the credentials publically online. 
+ODBC is used to connect to the database, and the variables are as follows: ```DB_SERVER```, the database address; ```DB_NAME```, the name of the database; ```DB_USERNAME```, the username; and ```DB_PASSWORD```, the password.
+The Google OAuth 2.0 client secret is defined as ```GOOGLE_CLIENT_SECRET```, and the SendGrid API key is ```SENDGRID_API_KEY```.
 
 8. Start the local server.  
  ```python runserver.py```
