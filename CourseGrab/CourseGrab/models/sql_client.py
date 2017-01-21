@@ -3,9 +3,9 @@ import pyodbc
 
 class Client(object):
     def __init__(self):
-        server = "tcp:coursegrabdb.database.windows.net"
-        database = "coursegrabdb"   
-        username = "nnsun"
+        server = os.getenv("DB_SERVER")
+        database = os.getenv("DB_NAME")
+        username = os.getenv("DB_USERNAME")
         password = os.getenv("DB_PASSWORD")
         self.connection = pyodbc.connect("DRIVER={ODBC Driver 13 for SQL Server};SERVER=%s;DATABASE=%s;UID=%s;PWD=%s"
                             % (server, database, username, password))
