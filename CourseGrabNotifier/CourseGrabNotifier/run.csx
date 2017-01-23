@@ -22,11 +22,14 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 {
     Stopwatch clock = Stopwatch.StartNew();
 
+    string server = Environment.GetEnvironmentVariable("DB_SERVER");
+    string database = Environment.GetEnvironmentVariable("DB_NAME");
+    string username = Environment.GetEnvironmentVariable("DB_USERNAME");
     string password = Environment.GetEnvironmentVariable("DB_PASSWORD");
     string apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
 
-    string connectionString = $@"Server=tcp:coursegrabdb.database.windows.net,1433;
-                                Initial Catalog=CourseGrabDB;Persist Security Info=False;
+    string connectionString = $@"Server={server};
+                                Initial Catalog={database},1433;Persist Security Info=False;
                                 User ID=nnsun;Password={password};MultipleActiveResultSets=False;
                                 Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
