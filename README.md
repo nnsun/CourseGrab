@@ -46,3 +46,7 @@ The Google OAuth 2.0 client secret is defined as ```GOOGLE_CLIENT_SECRET```, and
  ```python runserver.py```
  
 9. To exit the virtual environment, use ```deactivate```.
+
+### Running the notifier program
+
+Since the notifier program is specially built to work with Azure Functions, the best way to run it locally is with the Azure SDK. [This guide](https://blogs.msdn.microsoft.com/webdev/2016/12/01/visual-studio-tools-for-azure-functions/) helps explain the steps involved. The NuGet packages HtmlAgilityPack and Sendgrid are required (they will be installed automatically by the Azure Functions runtime). 
