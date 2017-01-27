@@ -55,8 +55,14 @@ def submit_request():
 
         course_code = request.form["course_number"]
         client = Client()
-        client.submit_request(user_id, user_email, course_code)
-        client.connection.close()
+        try:
+            client.submit_request(user_id, user_email, course_code)
+            client.connection.close()
+        except UserWarning as err:
+            if err == "This course number does not exist.":
+                flash()
+
+
     return redirect(url_for('index'))
 
 
