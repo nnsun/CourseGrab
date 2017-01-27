@@ -2,7 +2,7 @@
 Routes and views for the Flask application.
 """
 
-from flask import render_template, request, session, redirect, url_for
+from flask import render_template, request, session, redirect, url_for, flash
 from urllib2 import Request, urlopen, URLError
 import json
 from CourseGrab import app
@@ -60,7 +60,14 @@ def submit_request():
             client.connection.close()
         except UserWarning as err:
             if err == "This course number does not exist.":
-                flash()
+                flash('This course number does not exist.')
+                return render_template('templates/index.html')
+            elif err == "You are already tracking this course.":
+                flash("You are already tracking this course.")
+                return render_template('templates/index.html')
+            elif err == "You cannot track more than three courses at a time.":
+                flash("You cannot track more than three courses at a time.")
+                return render_template('templates/index.html')
 
 
     return redirect(url_for('index'))

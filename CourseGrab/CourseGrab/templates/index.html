@@ -13,6 +13,17 @@
             </div>
             <button type="submit" class="btn btn-primary">Add Course</button>
         </form>
+        <!-- Display flashed messages -->
+        {% with msgs = get_flashed_messages() %}
+            {% if msgs %}
+                {%- for msg in msgs %}
+                    <div class="alert alert-info">
+                        {{ msg }}
+                    </div>
+                {% endfor -%}
+            {% endif %}
+        {% endwith %}
+        {# End flash display#}
         <p id="disclaimer">
             Don't know the course ID of your course? <br>Find it at the
             <a href='https://classes.cornell.edu/browse/roster/SP17'>class roster.</a>
