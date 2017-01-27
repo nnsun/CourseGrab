@@ -28,9 +28,9 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
     string password = Environment.GetEnvironmentVariable("DB_PASSWORD");
     string apiKey = Environment.GetEnvironmentVariable("SENDGRID_API_KEY");
 
-    string connectionString = $@"Server={server};
-                                Initial Catalog={database},1433;Persist Security Info=False;
-                                User ID=nnsun;Password={password};MultipleActiveResultSets=False;
+    string connectionString = $@"Server={server},1433;
+                                Initial Catalog={database};Persist Security Info=False;
+                                User ID={username};Password={password};MultipleActiveResultSets=False;
                                 Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
     Dictionary<string, List<int>> subjectCourseDict = new Dictionary<string, List<int>>();
@@ -152,7 +152,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 command.ExecuteNonQuery();
             }
 
-            sql = $"SELECT Email, Subscription_1 FROM Users WHERE Subscription_1 IN {openCoursesStr}";
+            sql = $"SELECT Email, Subscription_1 FROM Users WHERE Subscription_1 IN {openCoursesStr} AND TrackStatus_1 = 1";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -169,7 +169,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 command.ExecuteNonQuery();
             }
 
-            sql = $"SELECT Email, Subscription_2 FROM Users WHERE Subscription_2 IN {openCoursesStr}";
+            sql = $"SELECT Email, Subscription_2 FROM Users WHERE Subscription_2 IN {openCoursesStr} AND TrackStatus_2 = 1";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -186,7 +186,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 command.ExecuteNonQuery();
             }
 
-            sql = $"SELECT Email, Subscription_3 FROM Users WHERE Subscription_3 IN {openCoursesStr}";
+            sql = $"SELECT Email, Subscription_3 FROM Users WHERE Subscription_3 IN {openCoursesStr} AND TrackStatus_3 = 1";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -264,15 +264,11 @@ private static List<bool> CheckSubjectCourses(KeyValuePair<string, List<int>> co
 private static async Task SendEmail(string email, int courseNum, string apiKey, TraceWriter log)
 {
     dynamic sg = new SendGridAPIClient(apiKey);
-    Email from = new Email("test@example.com");
-    Email to = new Email(email);
-    string subject = "Test";
+    Email from = new Email("mailer@cornellcoursegrab.com");
+    Email to = new Email("nsun200@live.com");
+    string subject = $"Course number {courseNum} is now open!";
     Content content = new Content("text/plain", "Test email");
     Mail mail = new Mail(from, subject, to, content);
-
+    log.Info(courseNum.ToString());
     dynamic response = await sg.client.mail.send.post(requestBody: mail.Get());
-    log.Info(response.StatusCode.ToString());
-    log.Info(response.Body.ReadAsStringAsync().Result.ToString());
-    log.Info(response.Headers.ToString());
-
 }
