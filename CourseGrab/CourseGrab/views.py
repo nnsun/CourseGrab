@@ -59,16 +59,16 @@ def submit_request():
             client.submit_request(user_id, user_email, course_code)
             client.connection.close()
         except UserWarning as err:
-            if err == "This course number does not exist.":
+            err_str = str(err)
+            if err_str == "This course number does not exist.":
                 flash('This course number does not exist.')
-                return render_template('templates/index.html')
-            elif err == "You are already tracking this course.":
+                return redirect(url_for('index'))
+            elif err_str == "You are already tracking this course.":
                 flash("You are already tracking this course.")
-                return render_template('templates/index.html')
-            elif err == "You cannot track more than three courses at a time.":
+                return redirect(url_for('index'))
+            elif err_str == "You cannot track more than three courses at a time.":
                 flash("You cannot track more than three courses at a time.")
-                return render_template('templates/index.html')
-
+                return redirect(url_for('index'))
 
     return redirect(url_for('index'))
 
