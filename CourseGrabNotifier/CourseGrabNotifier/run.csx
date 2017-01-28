@@ -38,7 +38,6 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
     {
         connection.Open();
 
-
         string sql = @"SELECT Subscription_1, Courses.SubjectCode FROM Users 
                         INNER JOIN Courses ON Users.Subscription_1 = Courses.CourseNum";
         using (SqlCommand command = new SqlCommand(sql, connection))
@@ -121,16 +120,16 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
         foreach (KeyValuePair<string, List<int>> pair in subjectCourseDict)
         {
-            List<bool> courseStatuses = CheckSubjectCourses(pair);
-            for (int i = 0; i < courseStatuses.Count; i++)
+            List<Tuple<int, bool>> courseStatuses = CheckSubjectCourses(pair, log);
+            foreach (Tuple<int, bool> courseStatus in courseStatuses)
             {
-                if (courseStatuses[i])
+                if (courseStatus.Item2)
                 {
-                    openCourses.Add(pair.Value[i]);
+                    openCourses.Add(courseStatus.Item1);
                 }
                 else
                 {
-                    fullCourses.Add(pair.Value[i]);
+                    fullCourses.Add(courseStatus.Item1);
                 }
             }
         }
@@ -159,7 +158,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
+                        //SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
                     }
                 }
             }
@@ -176,7 +175,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
+                        //SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
                     }
                 }
             }
@@ -193,7 +192,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
+                        //SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
                     }
                 }
             }
@@ -231,30 +230,31 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 }
 
 
-private static List<bool> CheckSubjectCourses(KeyValuePair<string, List<int>> courses)
+private static List<Tuple<int, bool>> CheckSubjectCourses(KeyValuePair<string, List<int>> courses, TraceWriter log)
 {
     string url = $"http://classes.cornell.edu/browse/roster/SP17/subject/{courses.Key}";
     HtmlWeb htmlWeb = new HtmlWeb();
     HtmlDocument htmlDocument = htmlWeb.Load(url);
-    HtmlNode[] courseNumNodes = htmlDocument.DocumentNode.SelectNodes("//strong").Where(
-                                    x => x.Attributes.Contains("class") && 
-                                    x.Attributes["class"].Value == "tooltip-iws" &&
-                                    courses.Value.Contains(
-                                        int.Parse(
-                                            Regex.Replace(x.InnerHtml, @"\D", "")))).ToArray();
+    HtmlNode[] courseNumNodes = htmlDocument.DocumentNode.SelectNodes("//strong").ToArray();
 
-    List<bool> statuses = new List<bool>();
+    List<Tuple<int, bool>> statuses = new List<Tuple<int, bool>>();
     foreach (HtmlNode courseNumNode in courseNumNodes)
     {
-        string status = courseNumNode.ParentNode.ParentNode.ParentNode.SelectNodes(
-                                        "//i").First().Attributes["class"].Value;
-        if (status.Contains("open-status-open"))
+        int courseNum = int.Parse(Regex.Replace(courseNumNode.InnerHtml, @"\D", ""));
+        if (courses.Value.Contains(courseNum))
         {
-            statuses.Add(true);
-        }
-        else
-        {
-            statuses.Add(false);
+            string status = courseNumNode.ParentNode.ParentNode.ParentNode.SelectNodes(
+                                        ".//i").First().Attributes["class"].Value;
+            if (status.Contains("open-status-open"))
+            {
+                Tuple<int, bool> courseStatus = new Tuple<int, bool>(courseNum, true);
+                statuses.Add(courseStatus);
+            }
+            else
+            {
+                Tuple<int, bool> courseStatus = new Tuple<int, bool>(courseNum, false);
+                statuses.Add(courseStatus);
+            }
         }
     }
     return statuses;
@@ -265,10 +265,10 @@ private static async Task SendEmail(string email, int courseNum, string apiKey, 
 {
     dynamic sg = new SendGridAPIClient(apiKey);
     Email from = new Email("mailer@cornellcoursegrab.com");
+    // Email to = new Email(email);
     Email to = new Email("nsun200@live.com");
     string subject = $"Course number {courseNum} is now open!";
-    Content content = new Content("text/plain", "Test email");
+    Content content = new Content("text/plain", "<h3>Go to studentcenter.cornell.edu to add it!</h3>");
     Mail mail = new Mail(from, subject, to, content);
-    log.Info(courseNum.ToString());
     dynamic response = await sg.client.mail.send.post(requestBody: mail.Get());
 }
