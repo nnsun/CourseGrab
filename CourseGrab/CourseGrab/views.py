@@ -34,6 +34,11 @@ def sign_in():
 def authorized(resp):
     access_token = resp['access_token']
     session['access_token'] = access_token, ''
+    user_dict = get_user_dict()
+    user_id = user_dict["id"]
+    user_email = user_dict["email"]
+    client = Client()
+    client.add_user(user_id, user_email)
     return redirect(url_for('index'))
  
  
@@ -45,31 +50,17 @@ def get_access_token():
 @app.route('/submitted', methods = ['POST'])
 def submit_request():
     if session.get('access_token') is None:
-        # need to notify user to sign in. Right now it's redirecting to sign in, but
-        # the entered course isn't being tracked.
-        return redirect(url_for('sign_in'))
+        flash("Please sign in first.")
     else:
         user_dict = get_user_dict()
         user_id = user_dict["id"]
-        user_email = user_dict["email"]
-
         course_code = request.form["course_number"]
         client = Client()
         try:
-            client.submit_request(user_id, user_email, course_code)
+            client.submit_request(user_id, course_code)
             client.connection.close()
         except UserWarning as err:
-            err_str = str(err)
-            if err_str == "This course number does not exist.":
-                flash('This course number does not exist.')
-                return redirect(url_for('index'))
-            elif err_str == "You are already tracking this course.":
-                flash("You are already tracking this course.")
-                return redirect(url_for('index'))
-            elif err_str == "You cannot track more than three courses at a time.":
-                flash("You cannot track more than three courses at a time.")
-                return redirect(url_for('index'))
-
+            flash(str(err))
     return redirect(url_for('index'))
 
 

@@ -1,5 +1,6 @@
-import os
 import pyodbc
+import os
+import datetime
 
 class Client(object):
     def __init__(self):
@@ -12,6 +13,15 @@ class Client(object):
         self.cursor = self.connection.cursor()
 
 
+    def add_user(self, id, email):
+        command = "SELECT * FROM Users WHERE UserID = ?"
+        self.cursor.execute(command, id)
+        if self.cursor.fetchone() is None:
+            command = "INSERT INTO Users(UserID, Email, JoinedDatetime) VALUES (?, ?, ?)"
+            self.cursor.execute(command, [id, email, datetime.datetime.now()])
+            self.cursor.commit()
+
+
     def get_courses(self, id):
         command = "SELECT Subscription_1, Subscription_2, Subscription_3 FROM Users WHERE UserID = ?"
         self.cursor.execute(command, id)
@@ -22,25 +32,22 @@ class Client(object):
         return courses
 
 
-    def submit_request(self, id, email, course_num):
+    def submit_request(self, id, course_num):
         command = "SELECT * FROM Courses WHERE CourseNum = ?"
         self.cursor.execute(command, course_num)
         row = self.cursor.fetchone()
         if row is None: 
             raise UserWarning("This course number does not exist.")
-
+        
         command = "SELECT * FROM Users WHERE UserID = ? AND (Subscription_1 = ? OR Subscription_2 = ? OR Subscription_3 = ?)"
         self.cursor.execute(command, [id, course_num, course_num, course_num])
         if self.cursor.fetchone() is not None:
             raise UserWarning("You are already tracking this course.")
 
-        command = "SELECT * FROM Users WHERE Email = ?"
-        self.cursor.execute(command, email)
+        command = "SELECT * FROM Users WHERE UserID = ?"
+        self.cursor.execute(command, id)
         row = self.cursor.fetchone()
-        if row is None:
-            command = "INSERT INTO Users (UserID, Email, Subscription_1, TrackStatus_1) VALUES (?, ?, ?, 1)"
-            self.cursor.execute(command, [id, email, course_num])
-        elif row.Subscription_1 is None:
+        if row.Subscription_1 is None:
             command = "UPDATE Users SET Subscription_1 = ?, TrackStatus_1 = 1"
             self.cursor.execute(command, course_num)
         elif row.Subscription_2 is None:

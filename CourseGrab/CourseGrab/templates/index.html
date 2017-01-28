@@ -25,48 +25,47 @@
         {% endwith %}
         {# End flash display#}
         <p id="disclaimer">
-            Don't know the course ID of your course? <br>Find it at the
+            Don't know the course ID of your course? <br>Find it on the
             <a href='https://classes.cornell.edu/browse/roster/SP17'>class roster.</a>
         </p>
     </div>
 </div>
 <div class="container tracking">
-    <h2>Course IDs You're Tracking</h2>
-        <p>Click the button next to the course ID to stop tracking it</p>
-            {% if "access_token" in session %}
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>Course ID</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for course in courses %}
-                            <tr>
-                                <td>{{course}}</td>
-                                <td>
-                                    <form action='remove/{{course}}' method="post">
-                                        <button type="submit" class="btn btn-default">
-                                            Remove
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            {% else %}
-                <table class="table table-hover">
-                    <thead>
+    <h2>Courses You're Tracking</h2>
+        {% if "access_token" in session %}
+            <table class="table table-hover">
+                <thead>
                     <tr>
                         <th>Course ID</th>
                         <th></th>
                     </tr>
-                    <td>You're not tracking any courses! Add courses using the box above, and they'll appear in this table.</td>
-                    </thead>
-                </table>
-            {% endif %}
+                </thead>
+                <tbody>
+                    {% for course in courses %}
+                        <tr>
+                            <td>{{course}}</td>
+                            <td>
+                                <form action='remove/{{course}}' method="post">
+                                    <button type="submit" class="btn btn-default">
+                                        Remove
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th></th>
+                </tr>
+                <td>You're not tracking any courses! Add courses using the box above, and they'll appear in this table.</td>
+                </thead>
+            </table>
+        {% endif %}
 </div>
 
 {% endblock %}
