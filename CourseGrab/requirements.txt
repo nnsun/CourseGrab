@@ -9,5 +9,7 @@ Jinja2==2.8
 MarkupSafe==0.23
 oauth2==1.9.0.post1
 pyodbc==3.1.1
+python-http-client==2.2.1
+pytz==2016.10
 requests==2.10.0
 Werkzeug==0.11.13

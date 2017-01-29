@@ -1,6 +1,7 @@
 import pyodbc
 import os
 import datetime
+import pytz
 
 class Client(object):
     def __init__(self):
@@ -14,11 +15,14 @@ class Client(object):
 
 
     def add_user(self, id, email):
+        est = pytz.timezone("America/New_York")
+        time = pytz.utc.localize(datetime.datetime.now(), is_dst=None).astimezone(est)
         command = "SELECT * FROM Users WHERE UserID = ?"
         self.cursor.execute(command, id)
         if self.cursor.fetchone() is None:
+            print datetime.datetime.now()
             command = "INSERT INTO Users(UserID, Email, JoinedDatetime) VALUES (?, ?, ?)"
-            self.cursor.execute(command, [id, email, datetime.datetime.now()])
+            self.cursor.execute(command, [id, email, time])
             self.cursor.commit()
 
 

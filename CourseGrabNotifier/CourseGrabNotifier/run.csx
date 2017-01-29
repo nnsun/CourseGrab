@@ -158,7 +158,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        //SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
                     }
                 }
             }
@@ -175,7 +175,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        //SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
                     }
                 }
             }
@@ -192,7 +192,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        //SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
                     }
                 }
             }
