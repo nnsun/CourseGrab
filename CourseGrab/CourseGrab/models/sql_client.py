@@ -52,14 +52,14 @@ class Client(object):
         self.cursor.execute(command, id)
         row = self.cursor.fetchone()
         if row.Subscription_1 is None:
-            command = "UPDATE Users SET Subscription_1 = ?, TrackStatus_1 = 1"
-            self.cursor.execute(command, course_num)
+            command = "UPDATE Users SET Subscription_1 = ?, TrackStatus_1 = 1 WHERE UserID = ?"
+            self.cursor.execute(command, [course_num, id])
         elif row.Subscription_2 is None:
-            command = "UPDATE Users SET Subscription_2 = ?, TrackStatus_2 = 1"
-            self.cursor.execute(command, course_num)
+            command = "UPDATE Users SET Subscription_2 = ?, TrackStatus_2 = 1 WHERE UserID = ?"
+            self.cursor.execute(command, [course_num, id])
         elif row.Subscription_3 is None:
-            command = "UPDATE Users SET Subscription_3 = ?, TrackStatus_2 = 1"
-            self.cursor.execute(command, course_num)
+            command = "UPDATE Users SET Subscription_3 = ?, TrackStatus_2 = 1 WHERE UserID = ?"
+            self.cursor.execute(command, [course_num, id])
         else:
             raise UserWarning("You cannot track more than three courses at a time.")
         self.cursor.commit()
@@ -70,12 +70,12 @@ class Client(object):
         self.cursor.execute(command, id)
         row = self.cursor.fetchone()
         if row.Subscription_1 == course_num:
-            command = "UPDATE Users SET Subscription_1 = NULL"
-            self.cursor.execute(command)
+            command = "UPDATE Users SET Subscription_1 = NULL WHERE UserID = ?"
+            self.cursor.execute(command, id)
         elif row.Subscription_2 == course_num:
-            command = "UPDATE Users SET Subscription_2 = NULL"
-            self.cursor.execute(command)
+            command = "UPDATE Users SET Subscription_2 = NULL WHERE UserID = ?"
+            self.cursor.execute(command, id)
         else:
-            command = "UPDATE Users SET Subscription_3 = NULL"
-            self.cursor.execute(command)
+            command = "UPDATE Users SET Subscription_3 = NULL WHERE UserID = ?"
+            self.cursor.execute(command, id)
         self.cursor.commit()

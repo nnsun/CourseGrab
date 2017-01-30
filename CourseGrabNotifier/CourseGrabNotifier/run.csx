@@ -158,7 +158,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey).Wait();
                     }
                 }
             }
@@ -175,7 +175,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey).Wait();
                     }
                 }
             }
@@ -192,7 +192,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey, log).Wait();
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey).Wait();
                     }
                 }
             }
@@ -261,7 +261,7 @@ private static List<Tuple<int, bool>> CheckSubjectCourses(KeyValuePair<string, L
 }
 
 
-private static async Task SendEmail(string email, int courseNum, string apiKey, TraceWriter log)
+private static async Task SendEmail(string email, int courseNum, string apiKey)
 {
     dynamic sg = new SendGridAPIClient(apiKey);
     Email from = new Email("mailer@cornellcoursegrab.com");
