@@ -261,7 +261,8 @@ private static async Task SendEmail(string email, int courseNum, string apiKey)
     Email from = new Email("mailer@cornellcoursegrab.com");
     Email to = new Email(email);
     string subject = $"Course number {courseNum} is now open!";
-    string message = IO.File.ReadAllText("message.html");
+    string directory = System.Environment.CurrentDirectory;
+    string message = System.IO.File.ReadAllText("D:\\home\\site\\wwwroot\\CourseGrabNotifier\\message.html");
     Content content = new Content("text/html", message);
     Mail mail = new Mail(from, subject, to, content);
     dynamic response = await sg.client.mail.send.post(requestBody: mail.Get());
