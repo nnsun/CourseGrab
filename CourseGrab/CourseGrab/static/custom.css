@@ -6,7 +6,10 @@ body {
                     rgba(0, 0, 0, 0.5)
             ),
             url(/static/images/mcgraw.jpg);
-    background-size: cover;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-attachment: fixed;
 }
 .navbar {
     margin-bottom: 0;
