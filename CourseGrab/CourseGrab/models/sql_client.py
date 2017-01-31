@@ -3,6 +3,7 @@ import os
 import datetime
 import pytz
 
+
 class Client(object):
     def __init__(self):
         server = os.getenv("DB_SERVER")

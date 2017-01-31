@@ -4,13 +4,13 @@ Every Cornell student runs into trouble with the hectic course signup system, ad
 
 Need to add a course but there are no empty slots? Give us your email address and the five digit course ID of the lecture or discussion you want to join, and we'll email you when the course is open!
 
-Deploying Spring 2017. Temporary hosted at http://cornellcoursegrab.azurewebsites.net/. 
+Deployed Spring 2017. Hosted at https://cornellcoursegrab.com . 
 
 Built for BigRed//Hacks 2016 by Chase Thomas and Ning Ning Sun
 
-Winner: best Cornell-related hack, awarded by Andreessen Horowitz
+Winner: ***"Best Cornell-Related Hack"*** - awarded by Andreessen Horowitz
 
-Honorable mention: best use of Microsoft Azure, awarded by Microsoft
+Honorable mention: ***"Best Use of Microsoft Technology"*** - awarded by Microsoft
 
 ## Getting started
 
