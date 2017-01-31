@@ -105,4 +105,4 @@ def page_not_found(e):
 
 @app.errorhandler(500)
 def internal_server_error(e):
-    return "500 error", 500
+    return "500 error. We will fix this someday but in the meantime, just <a href='https://cornellcoursegrab.com'>click here</a> to return to the main page.", 500
