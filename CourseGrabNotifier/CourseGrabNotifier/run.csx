@@ -15,13 +15,10 @@ using System.Threading.Tasks;
 using HtmlAgilityPack;
 using SendGrid;
 using SendGrid.Helpers.Mail;
-using System.Diagnostics;
 
 
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
-    Stopwatch clock = Stopwatch.StartNew();
-
     string server = Environment.GetEnvironmentVariable("DB_SERVER");
     string database = Environment.GetEnvironmentVariable("DB_NAME");
     string username = Environment.GetEnvironmentVariable("DB_USERNAME");
@@ -120,7 +117,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
         foreach (KeyValuePair<string, List<int>> pair in subjectCourseDict)
         {
-            List<Tuple<int, bool>> courseStatuses = CheckSubjectCourses(pair, log);
+            List<Tuple<int, bool>> courseStatuses = CheckSubjectCourses(pair);
             foreach (Tuple<int, bool> courseStatus in courseStatuses)
             {
                 if (courseStatus.Item2)
@@ -223,14 +220,11 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 command.ExecuteNonQuery();
             }
         }
-
-        clock.Stop();
-        log.Info($"Program took {clock.ElapsedMilliseconds} ms to execute");
     }
 }
 
 
-private static List<Tuple<int, bool>> CheckSubjectCourses(KeyValuePair<string, List<int>> courses, TraceWriter log)
+private static List<Tuple<int, bool>> CheckSubjectCourses(KeyValuePair<string, List<int>> courses)
 {
     string url = $"http://classes.cornell.edu/browse/roster/SP17/subject/{courses.Key}";
     HtmlWeb htmlWeb = new HtmlWeb();
@@ -265,10 +259,9 @@ private static async Task SendEmail(string email, int courseNum, string apiKey)
 {
     dynamic sg = new SendGridAPIClient(apiKey);
     Email from = new Email("mailer@cornellcoursegrab.com");
-    // Email to = new Email(email);
-    Email to = new Email("nsun200@live.com");
+    Email to = new Email(email);
     string subject = $"Course number {courseNum} is now open!";
-    Content content = new Content("text/plain", "<h3>Go to studentcenter.cornell.edu to add it!</h3>");
+    Content content = new Content("text/plain", "Go to studentcenter.cornell.edu to add it!");
     Mail mail = new Mail(from, subject, to, content);
     dynamic response = await sg.client.mail.send.post(requestBody: mail.Get());
 }

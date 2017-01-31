@@ -11,7 +11,6 @@ from CourseGrab import google
 
 
 @app.route('/')
-@app.route('/home')
 def index():
     courses = None
     access_token = session.get('access_token')
@@ -82,7 +81,8 @@ def sign_out():
 
 def get_user_dict():
     access_token = session.get('access_token')
-    assert access_token is not None
+    if (access_token is None):
+        return redirect("google.com")
     access_token = access_token[0]
     headers = {'Authorization': 'OAuth ' + access_token}
     req = Request('https://www.googleapis.com/oauth2/v1/userinfo',

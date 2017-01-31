@@ -58,7 +58,7 @@ class Client(object):
             command = "UPDATE Users SET Subscription_2 = ?, TrackStatus_2 = 1 WHERE UserID = ?"
             self.cursor.execute(command, [course_num, id])
         elif row.Subscription_3 is None:
-            command = "UPDATE Users SET Subscription_3 = ?, TrackStatus_2 = 1 WHERE UserID = ?"
+            command = "UPDATE Users SET Subscription_3 = ?, TrackStatus_3 = 1 WHERE UserID = ?"
             self.cursor.execute(command, [course_num, id])
         else:
             raise UserWarning("You cannot track more than three courses at a time.")

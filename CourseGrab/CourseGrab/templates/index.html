@@ -6,10 +6,11 @@
 <div class="jumbotron lander">
     <div class="container">
         <h1>Cornell CourseGrab</h1>
-        <p>Tell us the course ID of a class you want, and we'll notify you as soon as there's an empty slot.</p>
+        <p>Submit the IDs of any courses you want to enroll in, and we'll notify you as soon as there's an empty slot.</p>
         <form class="form-inline" role="form" action="submitted" method="post">
             <div class="form-group">
-                <input type="number" data-bind="value:replyNumber" min="0" class="form-control" id="inputCourseID" placeholder="Course ID" name="course_number">
+                <!-- limit numbers to the max int type in order to prevent overflowing the database -->
+                <input type="number" min="0" max="2147483647" data-bind="value:replyNumber" class="form-control" id="inputCourseID" placeholder="Course ID" name="course_number">
             </div>
             <button type="submit" class="btn btn-primary">Add Course</button>
         </form>
@@ -18,7 +19,7 @@
             {% if msgs %}
                 {%- for msg in msgs %}
                     <div class="alert alert-info">
-                        {{ msg }}
+                        {{msg}}
                     </div>
                 {% endfor -%}
             {% endif %}
@@ -32,40 +33,40 @@
 </div>
 <div class="container tracking">
     <h2>Courses You're Tracking</h2>
-        {% if "access_token" in session %}
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>Course ID</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for course in courses %}
-                        <tr>
-                            <td>{{course}}</td>
-                            <td>
-                                <form action='remove/{{course}}' method="post">
-                                    <button type="submit" class="btn btn-default">
-                                        Remove
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        {% else %}
-            <table class="table table-hover">
-                <thead>
+        <table class="table table-hover">
+            <thead>
                 <tr>
                     <th>Course ID</th>
                     <th></th>
                 </tr>
-                <td>You're not tracking any courses! Add courses using the box above, and they'll appear in this table.</td>
-                </thead>
+            </thead>
+            <tbody>
+                {% if "access_token" in session %}
+                    {% if courses|length == 0 %}
+                        <tr>
+                            <td>You're not tracking any courses! Add courses using the box above, and they'll appear in this table.</td>
+                        </tr>
+                    {% else %}
+                        {% for course in courses %}
+                            <tr>
+                                <td>{{course}}</td>
+                                <td>
+                                    <form action='remove/{{course}}' method="post">
+                                        <button type="submit" class="btn btn-default">
+                                            Remove
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% endif %}
+                {% else %}
+                <tr>
+                    <td>Sign in to start adding courses!</td>
+                </tr>
+                {% endif %}
+                </tbody>
             </table>
-        {% endif %}
 </div>
 
 {% endblock %}
