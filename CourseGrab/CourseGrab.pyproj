@@ -58,6 +58,7 @@
   <ItemGroup>
     <Content Include="CourseGrab\static\custom.css" />
     <Content Include="CourseGrab\static\images\mcgraw.jpg" />
+    <Content Include="CourseGrab\static\images\preview.png" />
     <Content Include="CourseGrab\static\images\west.jpg" />
     <Content Include="requirements.txt" />
     <Content Include="CourseGrab\static\content\bootstrap.css" />
