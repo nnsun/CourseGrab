@@ -27,11 +27,11 @@ def main():
         course_code_tags = subject_bs4.find_all("strong", class_ = "tooltip-iws")
         for tag in course_code_tags:
             course_num = int(tag.getText().strip())
-            catalogNum = int("".join([x for x in tag.next_sibling.getText() if x.isdigit()]))
-            title = tag.parent.parent.parent.parent.parent.parent.find_all("p", class_ = "course-descr")
-            section = ""
+            catalog_num = int("".join([x for x in tag.next_sibling.getText() if x.isdigit()]))
+            title = tag.parent.parent.parent.parent.parent.parent.find_all("div", class_ = "title-coursedescr")[0].getText()
+            section = str(tag.parent.parent.parent["aria-label"])[14:]
             command = "INSERT INTO Courses (CourseNum, OpenStatus, SubjectCode, CatalogNum, Title, Section) VALUES (?, 0, ?, ?, ?, ?)"
-            client.cursor.execute(command, [course_num, subject_code])
+            client.cursor.execute(command, [course_num, subject_code, catalog_num, title, section])
     client.connection.commit()
     client.connection.close()
 
