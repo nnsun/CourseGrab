@@ -24,10 +24,13 @@ def main():
         print subject_code
         subject_request = requests.get(subjects_page + subject_code)
         subject_bs4 = bs4.BeautifulSoup(subject_request.text, "html.parser")
-        course_code_tags = subject_bs4.find_all("strong", class_="tooltip-iws")
+        course_code_tags = subject_bs4.find_all("strong", class_ = "tooltip-iws")
         for tag in course_code_tags:
             course_num = int(tag.getText().strip())
-            command = "INSERT INTO Courses (CourseNum, SubjectCode, CheckStatus) VALUES (?, ?, 1)"
+            catalogNum = int("".join([x for x in tag.next_sibling.getText() if x.isdigit()]))
+            title = tag.parent.parent.parent.parent.parent.parent.find_all("p", class_ = "course-descr")
+            section = ""
+            command = "INSERT INTO Courses (CourseNum, OpenStatus, SubjectCode, CatalogNum, Title, Section) VALUES (?, 0, ?, ?, ?, ?)"
             client.cursor.execute(command, [course_num, subject_code])
     client.connection.commit()
     client.connection.close()

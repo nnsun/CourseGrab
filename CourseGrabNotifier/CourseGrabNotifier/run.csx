@@ -142,7 +142,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
             openCoursesStrBldr.Append(')');
             string openCoursesStr = openCoursesStrBldr.ToString();
 
-            sql = $"Update Courses SET CheckStatus = 1 WHERE CourseNum IN {openCoursesStr}";
+            sql = $"Update Courses SET OpenStatus = 1 WHERE CourseNum IN {openCoursesStr}";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.ExecuteNonQuery();
@@ -211,7 +211,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
             fullCoursesStrBldr.Append(')');
             string fullCoursesStr = fullCoursesStrBldr.ToString();
 
-            sql = $@"UPDATE Courses SET CheckStatus = 0 WHERE CourseNum in {fullCoursesStr};
+            sql = $@"UPDATE Courses SET OpenStatus = 0 WHERE CourseNum in {fullCoursesStr};
             UPDATE Users SET TrackStatus_1 = 1 WHERE Subscription_1 IN {fullCoursesStr};
             UPDATE Users SET TrackStatus_2 = 1 WHERE Subscription_2 IN {fullCoursesStr};
             UPDATE Users SET TrackStatus_3 = 1 WHERE Subscription_3 in {fullCoursesStr}";
