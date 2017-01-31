@@ -73,6 +73,10 @@ navbar-collapse.collapse {
     float: right!important;
 }
 
+.form-control {
+    display: inline;
+}
+
 /*Disables the spin box on the number field*/
 input[type="number"]::-webkit-outer-spin-button,
 input[type="number"]::-webkit-inner-spin-button {
