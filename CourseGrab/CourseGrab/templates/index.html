@@ -36,22 +36,26 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <th>Course ID</th>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Section</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             {% if "access_token" in session %}
-                {% if courses|length == 0 %}
+                {% if course_list|length == 0 %}
                     <tr>
                         <td>You're not tracking any courses! Add courses using the box above, and they'll appear in this table.</td>
                     </tr>
                 {% else %}
-                    {% for course in courses %}
+                    {% for course in course_list %}
                         <tr>
-                            <td>{{course}}</td>
+                            <td>{{course.0}}</td>
+                            <td>{{course.1}}</td>
+                            <td>{{course.2}}</td>
                             <td>
-                                <form action='remove/{{course}}' method="post">
+                                <form action='remove/{{course.0}}' method="post">
                                     <button type="submit" class="btn btn-default">
                                         Remove
                                     </button>

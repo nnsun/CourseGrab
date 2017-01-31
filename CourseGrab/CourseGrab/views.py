@@ -14,12 +14,13 @@ from CourseGrab import google
 def index():
     courses = None
     access_token = session.get('access_token')
+    course_list = []
     if access_token is not None:
         user_dict = get_user_dict()
         user_id = user_dict["id"]
         client = Client()
-        courses = client.get_courses(str(user_id))
-    return render_template('index.html', courses = courses)
+        course_list = client.get_courses(user_id)
+    return render_template('index.html', course_list = course_list)
 
 
 @app.route('/sign_in')

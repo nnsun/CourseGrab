@@ -20,6 +20,10 @@ def main():
         subject_list.append(str(tag.getText()))
 
     subjects_page = "https://classes.cornell.edu/browse/roster/SP17/subject/"
+    # Section information is displayed as "Class Section ABC 123".
+    # The offset enables grabbing only the relavent section information.
+    section_offset = len("Class Section ")      
+
     for subject_code in subject_list:
         print subject_code
         subject_request = requests.get(subjects_page + subject_code)
@@ -29,7 +33,7 @@ def main():
             course_num = int(tag.getText().strip())
             catalog_num = int("".join([x for x in tag.next_sibling.getText() if x.isdigit()]))
             title = tag.parent.parent.parent.parent.parent.parent.find_all("div", class_ = "title-coursedescr")[0].getText()
-            section = str(tag.parent.parent.parent["aria-label"])[14:]
+            section = str(tag.parent.parent.parent["aria-label"])[section_offset:]
             command = "INSERT INTO Courses (CourseNum, OpenStatus, SubjectCode, CatalogNum, Title, Section) VALUES (?, 0, ?, ?, ?, ?)"
             client.cursor.execute(command, [course_num, subject_code, catalog_num, title, section])
     client.connection.commit()

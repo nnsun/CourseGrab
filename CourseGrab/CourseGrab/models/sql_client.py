@@ -34,7 +34,22 @@ class Client(object):
         if courses is None:
             return []
         courses = [x for x in courses if x is not None]
-        return courses
+        if len(courses) == 0:
+            return []
+        courses_paren = "(%s)" % str(courses)[1:-1:]
+        command = "SELECT Title, Section FROM Courses WHERE CourseNum IN %s" % courses_paren
+        self.cursor.execute(command)
+        titles = []
+        sections = []
+        row = self.cursor.fetchone()
+        while row is not None:
+            titles.append(row.Title)
+            sections.append(row.Section)
+            row = self.cursor.fetchone()
+        course_list = []
+        for i in xrange(len(courses)):
+            course_list.append((courses[i], titles[i], sections[i]))
+        return course_list
 
 
     def submit_request(self, id, course_num):
