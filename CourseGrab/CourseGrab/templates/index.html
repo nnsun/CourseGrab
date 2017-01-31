@@ -35,12 +35,15 @@
     <h2>Courses You're Tracking</h2>
     <table class="table table-hover">
         <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Section</th>
-                <th></th>
-            </tr>
+            {% if "access_token" in session %}
+                {% if course_list|length == 0 %}
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Section</th>
+                    </tr>
+                {% endif %}
+            {% endif %}
         </thead>
         <tbody>
             {% if "access_token" in session %}
