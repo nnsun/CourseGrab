@@ -148,14 +148,16 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 command.ExecuteNonQuery();
             }
 
-            sql = $"SELECT Email, Subscription_1 FROM Users WHERE Subscription_1 IN {openCoursesStr} AND TrackStatus_1 = 1";
+            sql = $@"SELECT Email, Subscription_1, Title, Section FROM Users 
+                    INNER JOIN Courses ON Users.Subscription_1 = Courses.CourseNum 
+                    WHERE Subscription_1 IN {openCoursesStr} AND TrackStatus_1 = 1";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey).Wait();
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), apiKey).Wait();
                     }
                 }
             }
@@ -165,14 +167,16 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 command.ExecuteNonQuery();
             }
 
-            sql = $"SELECT Email, Subscription_2 FROM Users WHERE Subscription_2 IN {openCoursesStr} AND TrackStatus_2 = 1";
+            sql = $@"SELECT Email, Subscription_2, Title, Section FROM Users 
+                    INNER JOIN Courses ON Users.Subscription_2 = Courses.CourseNum
+                    WHERE Subscription_2 IN {openCoursesStr} AND TrackStatus_2 = 1";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey).Wait();
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), apiKey).Wait();
                     }
                 }
             }
@@ -182,14 +186,16 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 command.ExecuteNonQuery();
             }
 
-            sql = $"SELECT Email, Subscription_3 FROM Users WHERE Subscription_3 IN {openCoursesStr} AND TrackStatus_3 = 1";
+            sql = $@"SELECT Email, Subscription_3, Title, Section FROM Users 
+                    INNER JOIN Courses ON Users.Subscription_3 = Courses.CourseNum
+                    WHERE Subscription_3 IN {openCoursesStr} AND TrackStatus_3 = 1";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
                 {
                     while (reader.Read())
                     {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), apiKey).Wait();
+                        SendEmail(reader.GetString(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), apiKey).Wait();
                     }
                 }
             }
@@ -255,12 +261,12 @@ private static List<Tuple<int, bool>> CheckSubjectCourses(KeyValuePair<string, L
 }
 
 
-private static async Task SendEmail(string email, int courseNum, string apiKey)
+private static async Task SendEmail(string email, int courseNum, string title, string section, string apiKey)
 {
     dynamic sg = new SendGridAPIClient(apiKey);
     Email from = new Email("mailer@cornellcoursegrab.com");
     Email to = new Email(email);
-    string subject = $"Course number {courseNum} is now open!";
+    string subject = $"Course ID {courseNum}: {title}, {section} is now open!";
     string directory = System.Environment.CurrentDirectory;
     string message = System.IO.File.ReadAllText("D:\\home\\site\\wwwroot\\CourseGrabNotifier\\message.html");
     Content content = new Content("text/html", message);
