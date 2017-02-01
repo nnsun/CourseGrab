@@ -19,6 +19,7 @@ using SendGrid.Helpers.Mail;
 
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
+    // Get the necessary connection variables from environment variables
     string server = Environment.GetEnvironmentVariable("DB_SERVER");
     string database = Environment.GetEnvironmentVariable("DB_NAME");
     string username = Environment.GetEnvironmentVariable("DB_USERNAME");
@@ -29,12 +30,19 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                                 Initial Catalog={database};Persist Security Info=False;
                                 User ID={username};Password={password};MultipleActiveResultSets=False;
                                 Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-
+    
+    // Key: course subject code (ie. "AEM"), value: list of IDs of courses in the subject
     Dictionary<string, List<int>> subjectCourseDict = new Dictionary<string, List<int>>();
+
+    // Connect to the database
     using (SqlConnection connection = new SqlConnection(connectionString))
     {
         connection.Open();
 
+        // The next three SQL queries are used to populate subjectCourseDict with 
+        // all currently tracked courses
+
+        // Select the course number and subject code of all courses that are in Subscription_1
         string sql = @"SELECT Subscription_1, Courses.SubjectCode FROM Users 
                         INNER JOIN Courses ON Users.Subscription_1 = Courses.CourseNum";
         using (SqlCommand command = new SqlCommand(sql, connection))
@@ -61,7 +69,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
         }
 
 
-
+        // Select the course number and subject code of all courses that are in Subscription_2
         sql = @"SELECT Subscription_2, Courses.SubjectCode FROM Users 
                 INNER JOIN Courses ON Users.Subscription_2 = Courses.CourseNum";
         using (SqlCommand command = new SqlCommand(sql, connection))
@@ -87,6 +95,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
             }
         }
 
+        // Select the course number and subject code of all courses that are in Subscription_3
         sql = @"SELECT Subscription_3, Courses.SubjectCode FROM Users 
             INNER JOIN Courses ON Users.Subscription_3 = Courses.CourseNum";
         using (SqlCommand command = new SqlCommand(sql, connection))
@@ -112,14 +121,20 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
             }
         }
 
+        // create a list of course numbers of all open courses and all closed courses 
         List<int> openCourses = new List<int>();
         List<int> fullCourses = new List<int>();
 
+        // Loop through all subjects in subjectCourseDict
         foreach (KeyValuePair<string, List<int>> pair in subjectCourseDict)
         {
+            // Check the open status of the courses in the subject
             List<Tuple<int, bool>> courseStatuses = CheckSubjectCourses(pair);
+            
+            // Loop through the course statuses
             foreach (Tuple<int, bool> courseStatus in courseStatuses)
             {
+                // Add each course to the appropriate list depending on its status
                 if (courseStatus.Item2)
                 {
                     openCourses.Add(courseStatus.Item1);
@@ -133,21 +148,19 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
         if (openCourses.Count > 0)
         {
-            StringBuilder openCoursesStrBldr = new StringBuilder("(");
-            foreach (int courseNum in openCourses)
-            {
-                openCoursesStrBldr.Append(courseNum).Append(',');
-            }
-            openCoursesStrBldr.Length--;
-            openCoursesStrBldr.Append(')');
-            string openCoursesStr = openCoursesStrBldr.ToString();
+            // Instead of running a command for each course in the list, create a string
+            // of all the courses to search for and only iterate through the table once
+            string openCoursesStr = BuildCoursesString(openCourses);
 
+            // If a CourseNum is in the list of courses, then update the OpenStatus to 1 (now open)
             sql = $"Update Courses SET OpenStatus = 1 WHERE CourseNum IN {openCoursesStr}";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.ExecuteNonQuery();
             }
 
+            // Select the information needed to email the user if  the Subscription_1 course is open and
+            // they are set to receive notifications
             sql = $@"SELECT Email, Subscription_1, Title, Section FROM Users 
                     INNER JOIN Courses ON Users.Subscription_1 = Courses.CourseNum 
                     WHERE Subscription_1 IN {openCoursesStr} AND TrackStatus_1 = 1";
@@ -161,12 +174,14 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                     }
                 }
             }
+            // Update TrackStatus_1 to 0 for users following open courses
             sql = $"Update Users SET TrackStatus_1 = 0 WHERE Subscription_1 IN {openCoursesStr}";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.ExecuteNonQuery();
             }
 
+            // Same thing now for Subscription_2 and Subscription_3
             sql = $@"SELECT Email, Subscription_2, Title, Section FROM Users 
                     INNER JOIN Courses ON Users.Subscription_2 = Courses.CourseNum
                     WHERE Subscription_2 IN {openCoursesStr} AND TrackStatus_2 = 1";
@@ -208,15 +223,11 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
         if (fullCourses.Count > 0)
         {
-            StringBuilder fullCoursesStrBldr = new StringBuilder("(");
-            foreach (int courseNum in fullCourses)
-            {
-                fullCoursesStrBldr.Append(courseNum).Append(',');
-            }
-            fullCoursesStrBldr.Length--;
-            fullCoursesStrBldr.Append(')');
-            string fullCoursesStr = fullCoursesStrBldr.ToString();
+            // Create the string for all full courses
+            string fullCoursesStr = BuildCoursesString(fullCourses);
 
+            // Set the OpenStatus for full courses to 0 and update the TrackStatus for all 
+            // users following those full courses back to 1
             sql = $@"UPDATE Courses SET OpenStatus = 0 WHERE CourseNum in {fullCoursesStr};
             UPDATE Users SET TrackStatus_1 = 1 WHERE Subscription_1 IN {fullCoursesStr};
             UPDATE Users SET TrackStatus_2 = 1 WHERE Subscription_2 IN {fullCoursesStr};
@@ -229,7 +240,33 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
     }
 }
 
+/*
+ * Returns a parenthesized string of a given list of integers
+ * 
+ * List<int> courseList: list of course numbers
+ */
+private static string BuildCoursesString(List<int> courseList)
+{
+    StringBuilder CoursesStrBldr = new StringBuilder("(");
+    foreach (int courseNum in courseList)
+    {
+        CoursesStrBldr.Append(courseNum).Append(',');
+    }
+    CoursesStrBldr.Length--;
+    CoursesStrBldr.Append(')');
+    string coursesStr = CoursesStrBldr.ToString();
+    return coursesStr;
+}
 
+
+/* 
+ * Given a SubjectCode and a list of courseNums to check, returns a list of tuples of course numbers and
+ * the courses' open statuses. 
+ * ie. { (100, true), (101, false), (102, true), (103, true) }
+ * 
+ * courses.Key: the subject code of the courses being checked. This is used to load the course roster page. 
+ * courses.Value: a list of all the course numbers being checked
+ */
 private static List<Tuple<int, bool>> CheckSubjectCourses(KeyValuePair<string, List<int>> courses)
 {
     string url = $"http://classes.cornell.edu/browse/roster/SP17/subject/{courses.Key}";
@@ -261,6 +298,15 @@ private static List<Tuple<int, bool>> CheckSubjectCourses(KeyValuePair<string, L
 }
 
 
+/*
+ * Sends the notification email to the user.
+ * 
+ * string email: email address of the user
+ * int courseNum: course ID of the now open course
+ * string title: the title of the course
+ * string section: section information (ie. "LEC 001")
+ * string apiKey: SendGrid API key
+ */ 
 private static async Task SendEmail(string email, int courseNum, string title, string section, string apiKey)
 {
     dynamic sg = new SendGridAPIClient(apiKey);
