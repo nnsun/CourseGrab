@@ -2,9 +2,9 @@
 
 Every Cornell student runs into trouble with the hectic course signup system, adding some very unneeded stress to the semester.
 
-Need to add a course but there are no empty slots? Give us your email address and the five digit course ID of the lecture or discussion you want to join, and we'll email you when the course is open!
+Need to add a course but there are no empty slots? Give us your email address and the course ID of the lecture or discussion you want to join, and we'll email you when the course is open!
 
-Deployed Spring 2017. Hosted at https://cornellcoursegrab.com . 
+Deployed Spring 2017. Hosted at https://cornellcoursegrab.com.
 
 Built for BigRed//Hacks 2016 by Chase Thomas and Ning Ning Sun
 
