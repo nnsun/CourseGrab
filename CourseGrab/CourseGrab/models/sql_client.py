@@ -59,39 +59,23 @@ class Client(object):
         if row is None: 
             raise UserWarning("This course number does not exist.")
         
-        command = "SELECT * FROM Users WHERE UserID = ? AND (Subscription_1 = ? OR Subscription_2 = ? OR Subscription_3 = ?)"
-        self.cursor.execute(command, [id, course_num, course_num, course_num])
+        command = "SELECT * FROM Subscriptions WHERE UserID = ? AND CourseNum = ?"
+        self.cursor.execute(command, [id, course_num])
         if self.cursor.fetchone() is not None:
             raise UserWarning("You are already tracking this course.")
 
-        command = "SELECT * FROM Users WHERE UserID = ?"
+        command = "SELECT COUNT(*) as num_subs FROM Subscriptions WHERE UserID = ?"
         self.cursor.execute(command, id)
         row = self.cursor.fetchone()
-        if row.Subscription_1 is None:
-            command = "UPDATE Users SET Subscription_1 = ?, TrackStatus_1 = 1 WHERE UserID = ?"
-            self.cursor.execute(command, [course_num, id])
-        elif row.Subscription_2 is None:
-            command = "UPDATE Users SET Subscription_2 = ?, TrackStatus_2 = 1 WHERE UserID = ?"
-            self.cursor.execute(command, [course_num, id])
-        elif row.Subscription_3 is None:
-            command = "UPDATE Users SET Subscription_3 = ?, TrackStatus_3 = 1 WHERE UserID = ?"
-            self.cursor.execute(command, [course_num, id])
-        else:
+        if row.num_subs == 3:
             raise UserWarning("You cannot track more than three courses at a time.")
+
+        command = "INSERT INTO Subscriptions VALUES (?, ?)"
+        self.cursor.execute(command, id, course_num)
         self.cursor.commit()
 
 
     def remove_course(self, id, course_num):
-        command = "SELECT * FROM Users WHERE UserID = ?"
-        self.cursor.execute(command, id)
-        row = self.cursor.fetchone()
-        if row.Subscription_1 == course_num:
-            command = "UPDATE Users SET Subscription_1 = NULL WHERE UserID = ?"
-            self.cursor.execute(command, id)
-        elif row.Subscription_2 == course_num:
-            command = "UPDATE Users SET Subscription_2 = NULL WHERE UserID = ?"
-            self.cursor.execute(command, id)
-        else:
-            command = "UPDATE Users SET Subscription_3 = NULL WHERE UserID = ?"
-            self.cursor.execute(command, id)
+        command = "DELETE FROM Subscriptions WHERE UserID = ? AND CourseNum = ?"
+        self.cursor.execute(command, id, course_num)
         self.cursor.commit()

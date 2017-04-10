@@ -15,10 +15,12 @@ while row is not None:
     row = client.cursor.fetchone()
 
 for i in xrange(500):
-    command = "INSERT INTO Users (UserID, Email, Subscription_1, TrackStatus_1) VALUES (?, ?, ?, 1)"
+    command = "INSERT INTO Users (UserID, Email) VALUES (?, ?)"
     user_id = str(int('1' + '0' * 20) + i)
     email = "test%d@example.com" % i
     subscription = course_list.pop()
-    client.cursor.execute(command, [user_id, email, subscription])
+    client.cursor.execute(command, [user_id, email])
+    command = "INSERT INTO Subscriptions VALUES (?, ?)"
+    client.cursor.execute(command, [user_id, subscription])
 
 client.cursor.commit()
