@@ -19,7 +19,7 @@ def main():
     for tag in subject_tags:
         subject_list.append(str(tag.getText()))
 
-    subjects_page = "https://classes.cornell.edu/browse/roster/SP17/subject/"
+    subjects_page = "https://classes.cornell.edu/browse/roster/FA17/subject/"
     # Section information is displayed as "Class Section ABC 123".
     # The offset enables grabbing only the relavent section information.
     section_offset = len("Class Section ")      

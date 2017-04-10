@@ -28,5 +28,4 @@ google = oauth.remote_app('google',
                           consumer_key = "676925479214-9pvc8mn88dp46cl5dothrmbt5efvfjth.apps.googleusercontent.com",
                           consumer_secret = os.getenv("GOOGLE_CLIENT_SECRET"))
 
-
 import CourseGrab.views
