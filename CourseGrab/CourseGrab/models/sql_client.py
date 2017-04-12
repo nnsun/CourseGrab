@@ -1,4 +1,4 @@
-import pyodbc
+import pypyodbc
 import os
 import datetime
 import pytz
@@ -10,7 +10,7 @@ class Client(object):
         database = os.getenv("DB_NAME")
         username = os.getenv("DB_USERNAME")
         password = os.getenv("DB_PASSWORD")
-        self.connection = pyodbc.connect("DRIVER={ODBC Driver 13 for SQL Server};SERVER=%s;DATABASE=%s;UID=%s;PWD=%s"
+        self.connection = pypyodbc.connect("DRIVER={ODBC Driver 13 for SQL Server};SERVER=%s;DATABASE=%s;UID=%s;PWD=%s"
                             % (server, database, username, password))
         self.cursor = self.connection.cursor()
 
@@ -28,27 +28,12 @@ class Client(object):
 
 
     def get_courses(self, id):
-        command = "SELECT Subscription_1, Subscription_2, Subscription_3 FROM Users WHERE UserID = ?"
+        command = "SELECT C.CourseNum, Title, Section FROM Subscriptions S JOIN Courses C ON S.CourseNum = C.CourseNum WHERE UserID = ?"
         self.cursor.execute(command, id)
-        courses = self.cursor.fetchone()
-        if courses is None:
-            return []
-        courses = [x for x in courses if x is not None]
-        if len(courses) == 0:
-            return []
-        courses_paren = "(%s)" % str(courses)[1:-1:]
-        command = "SELECT Title, Section FROM Courses WHERE CourseNum IN %s" % courses_paren
-        self.cursor.execute(command)
-        titles = []
-        sections = []
-        row = self.cursor.fetchone()
-        while row is not None:
-            titles.append(row.Title)
-            sections.append(row.Section)
-            row = self.cursor.fetchone()
+        course = self.cursor.fetchone()
         course_list = []
-        for i in xrange(len(courses)):
-            course_list.append((courses[i], titles[i], sections[i]))
+        while course is not None:
+            course_list.append((course.CourseNum, course.Title, course.Section))
         return course_list
 
 

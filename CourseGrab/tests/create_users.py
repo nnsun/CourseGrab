@@ -20,7 +20,7 @@ for i in xrange(500):
     email = "test%d@example.com" % i
     subscription = course_list.pop()
     client.cursor.execute(command, [user_id, email])
-    command = "INSERT INTO Subscriptions VALUES (?, ?)"
+    command = "INSERT INTO Subscriptions VALUES (?, ?, 1)"
     client.cursor.execute(command, [user_id, subscription])
 
 client.cursor.commit()
