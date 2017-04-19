@@ -30,7 +30,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                                 Initial Catalog={database};Persist Security Info=False;
                                 User ID={username};Password={password};MultipleActiveResultSets=False;
                                 Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
-    
+
     // Key: course subject code (ie. "AEM"), value: list of IDs of courses in the subject
     Dictionary<string, List<int>> subjectCourseDict = new Dictionary<string, List<int>>();
 
@@ -39,12 +39,12 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
     {
         connection.Open();
 
-        // The next three SQL queries are used to populate subjectCourseDict with 
+        // The next three SQL queries are used to populate subjectCourseDict with
         // all currently tracked courses
 
-        // Select the course number and subject code of all courses that are in Subscription_1
-        string sql = @"SELECT Subscription_1, Courses.SubjectCode FROM Users 
-                        INNER JOIN Courses ON Users.Subscription_1 = Courses.CourseNum";
+        // Select the course number and subject code of all subscribed courses
+        string sql = @"SELECT C.CourseNum, C.SubjectCode FROM Subscriptions S
+                        INNER JOIN Courses C ON S.CourseNum = C.CourseNum";
         using (SqlCommand command = new SqlCommand(sql, connection))
         {
             using (SqlDataReader reader = command.ExecuteReader())
@@ -68,60 +68,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
             }
         }
 
-
-        // Select the course number and subject code of all courses that are in Subscription_2
-        sql = @"SELECT Subscription_2, Courses.SubjectCode FROM Users 
-                INNER JOIN Courses ON Users.Subscription_2 = Courses.CourseNum";
-        using (SqlCommand command = new SqlCommand(sql, connection))
-        {
-            using (SqlDataReader reader = command.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    if (!reader.IsDBNull(0))
-                    {
-                        if (subjectCourseDict.ContainsKey(reader.GetString(1)))
-                        {
-                            subjectCourseDict[reader.GetString(1)].Add(reader.GetInt32(0));
-                        }
-                        else
-                        {
-                            List<int> courses = new List<int>();
-                            courses.Add(reader.GetInt32(0));
-                            subjectCourseDict.Add(reader.GetString(1), courses);
-                        }
-                    }
-                }
-            }
-        }
-
-        // Select the course number and subject code of all courses that are in Subscription_3
-        sql = @"SELECT Subscription_3, Courses.SubjectCode FROM Users 
-            INNER JOIN Courses ON Users.Subscription_3 = Courses.CourseNum";
-        using (SqlCommand command = new SqlCommand(sql, connection))
-        {
-            using (SqlDataReader reader = command.ExecuteReader())
-            {
-                while (reader.Read())
-                {
-                    if (!reader.IsDBNull(0))
-                    {
-                        if (subjectCourseDict.ContainsKey(reader.GetString(1)))
-                        {
-                            subjectCourseDict[reader.GetString(1)].Add(reader.GetInt32(0));
-                        }
-                        else
-                        {
-                            List<int> courses = new List<int>();
-                            courses.Add(reader.GetInt32(0));
-                            subjectCourseDict.Add(reader.GetString(1), courses);
-                        }
-                    }
-                }
-            }
-        }
-
-        // create a list of course numbers of all open courses and all closed courses 
+        // create a list of course numbers of all open courses and all closed courses
         List<int> openCourses = new List<int>();
         List<int> fullCourses = new List<int>();
 
@@ -130,7 +77,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
         {
             // Check the open status of the courses in the subject
             List<Tuple<int, bool>> courseStatuses = CheckSubjectCourses(pair);
-            
+
             // Loop through the course statuses
             foreach (Tuple<int, bool> courseStatus in courseStatuses)
             {
@@ -159,11 +106,12 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                 command.ExecuteNonQuery();
             }
 
-            // Select the information needed to email the user if  the Subscription_1 course is open and
+            // Select the information needed to email the user if their subscribed course is open and
             // they are set to receive notifications
-            sql = $@"SELECT Email, Subscription_1, Title, Section FROM Users 
-                    INNER JOIN Courses ON Users.Subscription_1 = Courses.CourseNum 
-                    WHERE Subscription_1 IN {openCoursesStr} AND TrackStatus_1 = 1";
+            sql = $@"SELECT Email, S.CourseNum, Title, Section FROM Subscriptions S
+                    INNER JOIN Courses ON S.CourseNum = Courses.CourseNum
+                    INNER JOIN Users ON Users.UserID = S.UserID
+                    WHERE S.CourseNum IN {openCoursesStr} AND TrackStatus = 1";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 using (SqlDataReader reader = command.ExecuteReader())
@@ -174,47 +122,8 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
                     }
                 }
             }
-            // Update TrackStatus_1 to 0 for users following open courses
-            sql = $"Update Users SET TrackStatus_1 = 0 WHERE Subscription_1 IN {openCoursesStr}";
-            using (SqlCommand command = new SqlCommand(sql, connection))
-            {
-                command.ExecuteNonQuery();
-            }
-
-            // Same thing now for Subscription_2 and Subscription_3
-            sql = $@"SELECT Email, Subscription_2, Title, Section FROM Users 
-                    INNER JOIN Courses ON Users.Subscription_2 = Courses.CourseNum
-                    WHERE Subscription_2 IN {openCoursesStr} AND TrackStatus_2 = 1";
-            using (SqlCommand command = new SqlCommand(sql, connection))
-            {
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), apiKey).Wait();
-                    }
-                }
-            }
-            sql = $"Update Users SET TrackStatus_2 = 0 WHERE Subscription_2 IN {openCoursesStr}";
-            using (SqlCommand command = new SqlCommand(sql, connection))
-            {
-                command.ExecuteNonQuery();
-            }
-
-            sql = $@"SELECT Email, Subscription_3, Title, Section FROM Users 
-                    INNER JOIN Courses ON Users.Subscription_3 = Courses.CourseNum
-                    WHERE Subscription_3 IN {openCoursesStr} AND TrackStatus_3 = 1";
-            using (SqlCommand command = new SqlCommand(sql, connection))
-            {
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    while (reader.Read())
-                    {
-                        SendEmail(reader.GetString(0), reader.GetInt32(1), reader.GetString(2), reader.GetString(3), apiKey).Wait();
-                    }
-                }
-            }
-            sql = $"Update Users SET TrackStatus_3 = 0 WHERE Subscription_3 IN {openCoursesStr}";
+            // Update TrackStatus to 0 for open course subscriptions
+            sql = $"Update Subscriptions SET TrackStatus = 0 WHERE CourseNum IN {openCoursesStr}";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.ExecuteNonQuery();
@@ -226,12 +135,10 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
             // Create the string for all full courses
             string fullCoursesStr = BuildCoursesString(fullCourses);
 
-            // Set the OpenStatus for full courses to 0 and update the TrackStatus for all 
+            // Set the OpenStatus for full courses to 0 and update the TrackStatus for all
             // users following those full courses back to 1
             sql = $@"UPDATE Courses SET OpenStatus = 0 WHERE CourseNum in {fullCoursesStr};
-            UPDATE Users SET TrackStatus_1 = 1 WHERE Subscription_1 IN {fullCoursesStr};
-            UPDATE Users SET TrackStatus_2 = 1 WHERE Subscription_2 IN {fullCoursesStr};
-            UPDATE Users SET TrackStatus_3 = 1 WHERE Subscription_3 in {fullCoursesStr}";
+            UPDATE Subscriptions SET TrackStatus = 1 WHERE CourseNum IN {fullCoursesStr}";
             using (SqlCommand command = new SqlCommand(sql, connection))
             {
                 command.ExecuteNonQuery();
@@ -242,7 +149,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 /*
  * Returns a parenthesized string of a given list of integers
- * 
+ *
  * List<int> courseList: list of course numbers
  */
 private static string BuildCoursesString(List<int> courseList)
@@ -259,17 +166,17 @@ private static string BuildCoursesString(List<int> courseList)
 }
 
 
-/* 
+/*
  * Given a SubjectCode and a list of courseNums to check, returns a list of tuples of course numbers and
- * the courses' open statuses. 
+ * the courses' open statuses.
  * ie. { (100, true), (101, false), (102, true), (103, true) }
- * 
- * courses.Key: the subject code of the courses being checked. This is used to load the course roster page. 
+ *
+ * courses.Key: the subject code of the courses being checked. This is used to load the course roster page.
  * courses.Value: a list of all the course numbers being checked
  */
 private static List<Tuple<int, bool>> CheckSubjectCourses(KeyValuePair<string, List<int>> courses)
 {
-    string url = $"http://classes.cornell.edu/browse/roster/SP17/subject/{courses.Key}";
+    string url = $"http://classes.cornell.edu/browse/roster/FA17/subject/{courses.Key}";
     HtmlWeb htmlWeb = new HtmlWeb();
     HtmlDocument htmlDocument = htmlWeb.Load(url);
     HtmlNode[] courseNumNodes = htmlDocument.DocumentNode.SelectNodes("//strong").ToArray();
@@ -300,13 +207,13 @@ private static List<Tuple<int, bool>> CheckSubjectCourses(KeyValuePair<string, L
 
 /*
  * Sends the notification email to the user.
- * 
+ *
  * string email: email address of the user
  * int courseNum: course ID of the now open course
  * string title: the title of the course
  * string section: section information (ie. "LEC 001")
  * string apiKey: SendGrid API key
- */ 
+ */
 private static async Task SendEmail(string email, int courseNum, string title, string section, string apiKey)
 {
     dynamic sg = new SendGridAPIClient(apiKey);
