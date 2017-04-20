@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+
+<div class="jumbotron lander">
+    <div class="container">
+        <h1>Cornell CourseGrab</h1>
+        <p>Submit the IDs of any courses you want to enroll in, and we'll notify you as soon as there's an empty slot.</p>
+        <form class="form-inline" role="form" action="submitted" method="post">
+            <div class="form-group">
+                <!-- limit numbers to the max int type in order to prevent overflowing the database -->
+                <input type="number" min="0" max="2147483647" data-bind="value:replyNumber" class="form-control" id="inputCourseID" placeholder="Course ID" name="course_number">
+            </div>
+            <button type="submit" class="btn btn-primary">Add Course</button>
+        </form>
+        <!-- Display flashed messages -->
+        {% with msgs = get_flashed_messages() %}
+            {% if msgs %}
+                {%- for msg in msgs %}
+                    <div class="alert alert-info">
+                        {{msg}}
+                    </div>
+                {% endfor -%}
+            {% endif %}
+        {% endwith %}
+        {# End flash display#}
+        <p id="disclaimer">
+            Don't know the ID of your course? <br>Find it on the
+            <a href='https://classes.cornell.edu/browse/roster/SP17'>class roster.</a>
+        </p>
+    </div>
+</div>
+<div class="container tracking">
+    <h2>Courses You're Tracking</h2>
+    <table class="table table-hover">
+        <tbody>
+            {% if "access_token" in session %}
+                {% if course_list|length == 0 %}
+                    <tr>
+                        <td>You're not tracking any courses! Add courses using the box above, and they'll appear in this table.</td>
+                    </tr>
+                {% else %}
+                    {% for course in course_list %}
+                        <tr>
+                            <td>{{course.0}}</td>
+                            <td>{{course.1}}</td>
+                            <td>{{course.2}}</td>
+                            <td>
+                                <form action='remove/{{course.0}}' method="post">
+                                    <button type="submit" class="btn btn-default">
+                                        Remove
+                                    </button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            {% else %}
+            <tr>
+                <td>Sign in to start adding courses!</td>
+            </tr>
+        {% endif %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
