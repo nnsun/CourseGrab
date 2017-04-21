@@ -1,15 +1,14 @@
 import pyodbc
-import os
 import datetime
 import pytz
-
+from config import *
 
 class Client(object):
     def __init__(self):
-        server = os.getenv("DB_SERVER")
-        database = os.getenv("DB_NAME")
-        username = os.getenv("DB_USERNAME")
-        password = os.getenv("DB_PASSWORD")
+        server = DB_SERVER
+        database = DB_NAME
+        username = DB_USERNAME
+        password = DB_PASSWORD
         self.connection = pyodbc.connect("DRIVER={ODBC Driver 13 for SQL Server};SERVER=%s;DATABASE=%s;UID=%s;PWD=%s"
                             % (server, database, username, password))
         self.cursor = self.connection.cursor()

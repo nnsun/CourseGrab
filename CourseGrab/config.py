@@ -1,0 +1,1 @@
+GOOGLE_CLIENT_SECRET = 'aBIsexwSEzOmjzRkblcJALf8'

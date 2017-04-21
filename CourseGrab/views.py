@@ -5,12 +5,12 @@ Routes and views for the Flask application.
 from flask import render_template, request, session, redirect, url_for, flash
 from urllib2 import Request, urlopen, URLError
 import json
-from CourseGrab import app
+from CourseGrab import app as application
 from CourseGrab.models.sql_client import Client
 from CourseGrab import google
 
 
-@app.route('/')
+@application.route('/')
 def index():
     courses = None
     access_token = session.get('access_token')
@@ -23,13 +23,13 @@ def index():
     return render_template('index.html', course_list = course_list)
 
 
-@app.route('/sign_in')
+@application.route('/sign_in')
 def sign_in():
     callback = url_for('authorized', _external = True)
     return google.authorize(callback=callback)
 
 
-@app.route('/oauth2callback')
+@application.route('/oauth2callback')
 @google.authorized_handler
 def authorized(resp):
     access_token = resp['access_token']
@@ -47,7 +47,7 @@ def get_access_token():
     return session.get('access_token')
 
 
-@app.route('/submitted', methods = ['POST'])
+@application.route('/submitted', methods = ['POST'])
 def submit_request():
     if session.get('access_token') is None:
         flash("Please sign in first.")
@@ -64,7 +64,7 @@ def submit_request():
     return redirect(url_for('index'))
 
 
-@app.route('/remove/<int:course_num>', methods = ['POST'])
+@application.route('/remove/<int:course_num>', methods = ['POST'])
 def remove(course_num):
     user_dict = get_user_dict()
     user_id = user_dict["id"]
@@ -73,7 +73,7 @@ def remove(course_num):
     return redirect(url_for('index'))
 
 
-@app.route('/sign_out')
+@application.route('/sign_out')
 def sign_out():
     # remove the token from the session if it's there
     session.pop('access_token', None)
@@ -93,16 +93,16 @@ def get_user_dict():
     return json.loads(res.read())
 
 
-@app.errorhandler(400)
+@application.errorhandler(400)
 def bad_request(e):
     return "400 error", 400
 
 
-@app.errorhandler(404)
+@application.errorhandler(404)
 def page_not_found(e):
     return "404 error", 404
 
 
-@app.errorhandler(500)
+@application.errorhandler(500)
 def internal_server_error(e):
     return "500 error. We will fix this someday but in the meantime, just <a href='https://cornellcoursegrab.com'>click here</a> to return to the main page.", 500
