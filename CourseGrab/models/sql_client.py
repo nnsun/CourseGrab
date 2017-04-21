@@ -41,9 +41,9 @@ class Client(object):
         command = "SELECT * FROM Courses WHERE CourseNum = ?"
         self.cursor.execute(command, course_num)
         row = self.cursor.fetchone()
-        if row is None: 
+        if row is None:
             raise UserWarning("This course number does not exist.")
-        
+
         command = "SELECT * FROM Subscriptions WHERE UserID = ? AND CourseNum = ?"
         self.cursor.execute(command, [id, course_num])
         if self.cursor.fetchone() is not None:
@@ -56,11 +56,12 @@ class Client(object):
             raise UserWarning("You cannot track more than three courses at a time.")
 
         command = "INSERT INTO Subscriptions VALUES (?, ?)"
-        self.cursor.execute(command, id, course_num)
+        self.cursor.execute(command, [id, course_num])
         self.cursor.commit()
 
 
     def remove_course(self, id, course_num):
         command = "DELETE FROM Subscriptions WHERE UserID = ? AND CourseNum = ?"
-        self.cursor.execute(command, id, course_num)
+        self.cursor.execute(command, [id, course_num])
         self.cursor.commit()
+

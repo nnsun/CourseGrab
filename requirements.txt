@@ -4,6 +4,7 @@ click==6.7
 Flask==0.12.1
 Flask-OAuth==0.12
 Flask-SSLify==0.1.5
+gunicorn
 httplib2==0.10.3
 itsdangerous==0.24
 Jinja2==2.9.6

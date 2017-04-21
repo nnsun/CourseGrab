@@ -22,7 +22,7 @@ def main():
     subjects_page = "https://classes.cornell.edu/browse/roster/FA17/subject/"
     # Section information is displayed as "Class Section ABC 123".
     # The offset enables grabbing only the relavent section information.
-    section_offset = len("Class Section ")      
+    section_offset = len("Class Section ")
 
     for subject_code in subject_list:
         print subject_code

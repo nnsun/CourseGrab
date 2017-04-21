@@ -27,8 +27,8 @@ def index():
 def sign_in():
     callback = url_for('authorized', _external = True)
     return google.authorize(callback=callback)
- 
- 
+
+
 @app.route('/oauth2callback')
 @google.authorized_handler
 def authorized(resp):
@@ -40,8 +40,8 @@ def authorized(resp):
     client = Client()
     client.add_user(user_id, user_email)
     return redirect(url_for('index'))
- 
- 
+
+
 @google.tokengetter
 def get_access_token():
     return session.get('access_token')
@@ -89,7 +89,7 @@ def get_user_dict():
     req = Request('https://www.googleapis.com/oauth2/v1/userinfo',
                   None, headers)
     res = urlopen(req)
-    
+
     return json.loads(res.read())
 
 
