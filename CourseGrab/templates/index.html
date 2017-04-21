@@ -8,7 +8,7 @@
         <h1>Cornell CourseGrab</h1>
         <p>Submit the IDs of any courses you want to enroll in, and we'll notify you as soon as there's an empty slot.</p>
         <form class="form-inline" role="form" action="submitted" method="post">
-            <div class="form-group">
+            <div class="form-group" style=" margin-bottom: 8px">
                 <!-- limit numbers to the max int type in order to prevent overflowing the database -->
                 <input type="number" min="0" max="2147483647" data-bind="value:replyNumber" class="form-control" id="inputCourseID" placeholder="Course ID" name="course_number">
             </div>
