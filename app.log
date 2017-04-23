@@ -1,0 +1,20 @@
+WLKEFJKEWFW
+RETURNING AUTHORIZE
+<Response 775 bytes [302 FOUND]>
+Exception on /oauth2callback [GET]
+Traceback (most recent call last):
+  File "/home/nnsun/CourseGrab/env/local/lib/python2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/nnsun/CourseGrab/env/local/lib/python2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/nnsun/CourseGrab/env/local/lib/python2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/home/nnsun/CourseGrab/env/local/lib/python2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/nnsun/CourseGrab/env/local/lib/python2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/nnsun/CourseGrab/env/local/lib/python2.7/site-packages/flask_oauth.py", line 429, in decorated
+    data = self.handle_oauth2_response()
+  File "/home/nnsun/CourseGrab/env/local/lib/python2.7/site-packages/flask_oauth.py", line 407, in handle_oauth2_response
+    type='invalid_response', data=data)
+OAuthException: Invalid response from google
