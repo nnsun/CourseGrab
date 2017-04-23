@@ -105,4 +105,5 @@ def page_not_found(e):
 
 @application.errorhandler(500)
 def internal_server_error(e):
-    return "500 error. We will fix this someday but in the meantime, just <a href='https://cornellcoursegrab.com'>click here</a> to return to the main page.", 500
+    # return "500 error. We will fix this someday but in the meantime, just <a href='https://cornellcoursegrab.com'>click here</a> to return to the main page.", 500
+    return "Sorry, unfortunately Google sign-in is currently buggy. We suspect this is an issue due us using a new hosting provider. This will be fixed by add/drop.", 500
