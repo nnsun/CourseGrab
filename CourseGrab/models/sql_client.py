@@ -54,7 +54,7 @@ class Client(object):
         if row.num_subs == 3:
             raise UserWarning("You cannot track more than three courses at a time.")
 
-        command = "INSERT INTO Subscriptions VALUES (?, ?)"
+        command = "INSERT INTO Subscriptions VALUES (?, ?, 1)"
         self.cursor.execute(command, [id, course_num])
         self.cursor.commit()
 
