@@ -1,3 +1,6 @@
+import sys
+sys.path.append("..")
+
 from CourseGrab.models.sql_client import Client
 
 
@@ -18,9 +21,12 @@ for i in xrange(500):
     command = "INSERT INTO Users (UserID, Email) VALUES (?, ?)"
     user_id = str(int('1' + '0' * 20) + i)
     email = "test%d@example.com" % i
-    subscription = course_list.pop()
     client.cursor.execute(command, [user_id, email])
+
     command = "INSERT INTO Subscriptions VALUES (?, ?, 1)"
-    client.cursor.execute(command, [user_id, subscription])
+    for j in xrange(3):
+        subscription = course_list.pop()
+        client.cursor.execute(command, [user_id, subscription])
 
 client.cursor.commit()
+

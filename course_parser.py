@@ -1,15 +1,21 @@
+import sys
 import requests
 import bs4
 from CourseGrab.models.sql_client import Client
 
 
 """
-Parses the Cornell class roster and builds a SQL database of all courses
+Parses the Cornell class roster and builds a SQL table of all courses
 """
-def main():
+def main(semester):
     client = Client()
+
+    # Delete old semester table
+    client.cursor.execute("DELETE FROM Courses")
+    client.cursor.commit()
+
     course_num_map = {}
-    roster_page = "https://classes.cornell.edu/browse/roster/FA17"
+    roster_page = "https://classes.cornell.edu/browse/roster/" + semester
     roster_request = requests.get(roster_page)
     roster_request.raise_for_status()
     roster_bs4 = bs4.BeautifulSoup(roster_request.text, "html.parser")
@@ -19,7 +25,7 @@ def main():
     for tag in subject_tags:
         subject_list.append(str(tag.getText()))
 
-    subjects_page = "https://classes.cornell.edu/browse/roster/FA17/subject/"
+    subjects_page = "https://classes.cornell.edu/browse/roster/" + semester + "/subject/"
     # Section information is displayed as "Class Section ABC 123".
     # The offset enables grabbing only the relavent section information.
     section_offset = len("Class Section ")
@@ -40,4 +46,7 @@ def main():
     client.connection.close()
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) != 2:
+         print "Usage: 'python course_parser.py [SEMESTER]', e.g. 'python course_parser.py FA17'"
+    else:
+        main(sys.argv[1])
