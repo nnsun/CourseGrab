@@ -16,7 +16,11 @@ def index():
     access_token = session.get('access_token')
     course_list = []
     if access_token is not None:
-        user_dict = get_user_dict()
+        try:
+            user_dict = get_user_dict()
+        except Exception:
+            callback = url_for('authorized', _external = True)
+            return google.authorize(callback=callback)
         user_id = user_dict["id"]
         client = Client()
         course_list = client.get_courses(user_id)
