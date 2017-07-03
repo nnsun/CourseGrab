@@ -1,10 +1,8 @@
 # CourseGrab
 
-Every Cornell student runs into trouble with the hectic course signup system, adding some very unneeded stress to the semester.
+Need to add a course but there are no empty slots? Instead of constantly checking for an open slot throughout the day, adding undue stress to your busy life, let CourseGrab do it for you! Simply enter the course ID of the course you want to enroll in, and we'll send you a notification email when the course opens up!
 
-Need to add a course but there are no empty slots? Give us your email address and the course ID of the lecture or discussion you want to join, and we'll email you when the course is open!
-
-Deployed Spring 2017. Hosted at https://cornellcoursegrab.com. 
+Deployed Spring 2017. Hosted at https://coursegrab.me. 
 
 Built for BigRed//Hacks 2016 by Chase Thomas and Ning Ning Sun
 
@@ -16,7 +14,7 @@ Honorable mention: ***"Best Use of Microsoft Technology"*** - awarded by Microso
 
 The project itself consists of two parts.
 
-There's the webapp code which is contained in this repo and hosted on a DigitalOcean Ubuntu 16.04 VPS running Nginx. It is written in Flask. It has basic Google authentication and allows the user to track up to three courses. Currently logging in doesn't work. This is likely an issue with Nginx configuration, since we recently moved from hosting the site on Microsoft Azure to hosting on a DigitalOcean VPS.
+There's the webapp code which is contained in this repo and hosted on a DigitalOcean Ubuntu 16.04 VPS running Apache. It is written in Flask. It has basic Google authentication and allows the user to track up to three courses. 
 
 The time-triggered notifier app is hosted in a [separate repository](https://github.com/nnsun/CourseGrabNotifier) and is written in C#. This is deployed using Azure Functions. Every minute, it will check the statuses of all tracked courses. For all open courses, it will send a notification email to any users who are tracking it and haven't already been notified about the particular opening. That way, a user will not get spammed by emails for the same course in a short period of time. If a particular open course becomes closed but opens up at a later time, users will be notified again. 
 
