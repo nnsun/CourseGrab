@@ -10,7 +10,7 @@ Winner: ***"Best Cornell-Related Hack"*** - awarded by Andreessen Horowitz
 
 Honorable mention: ***"Best Use of Microsoft Technology"*** - awarded by Microsoft
 
-## Getting started
+## Project Details
 
 The project itself consists of two parts.
 
