@@ -24,7 +24,8 @@ body {
 .jumbotron {
     text-align: center;
     background-color: transparent;
-    margin-bottom: 0;
+    margin-bottom: 0px;
+    padding-top: 16px;
 }
 .jumbotron p {
     color: white;
@@ -89,4 +90,17 @@ input[type="number"]::-webkit-inner-spin-button {
 
 input[type="number"] {
     -moz-appearance: textfield;
+}
+
+.flash-alert {
+    display: inline-block;
+    margin: 0;
+    padding: 0px 15px 0px 15px;
+    font-size: 20px;
+}
+
+.invis-flash-alert {
+    background-color: transparent;
+    border-color: transparent;
+    color: transparent;    
 }
