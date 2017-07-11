@@ -87,7 +87,8 @@ def sign_out():
 def get_user_dict():
     access_token = session.get('access_token')
     if (access_token is None):
-        return redirect("google.com")
+        callback = url_for('authorized', _external=True)
+        return google.authorize(callback = callback)
     access_token = access_token[0]
     headers = {'Authorization': 'OAuth ' + access_token}
     req = Request('https://www.googleapis.com/oauth2/v1/userinfo',
@@ -109,5 +110,5 @@ def page_not_found(e):
 
 @application.errorhandler(500)
 def internal_server_error(e):
-    return "Looks like you ran into a bug! Turns out making a website is kind of hard. We will fix this someday but in the meantime, just <a href='https://coursegrab.me'>click here</a> to return to the main page.", 500
+    return "Looks like you ran into a bug! Turns out making a website is kind of hard. We will fix this someday but in the meantime, just <a href='https://coursegrab.me'>click here</a> to return to the main page. Refreshing the page almost always fixes the problem.", 500
 
