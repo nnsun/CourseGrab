@@ -41,7 +41,7 @@ class Client(object):
         self.cursor.execute(command, course_num)
         row = self.cursor.fetchone()
         if row is None:
-            raise UserWarning("This course number does not exist.")
+            raise UserWarning("This course number is not in our database. It may take a bit for us to update our database to new courses added by the registrar.")
 
         command = "SELECT * FROM Subscriptions WHERE UserID = ? AND CourseNum = ?"
         self.cursor.execute(command, [id, course_num])
