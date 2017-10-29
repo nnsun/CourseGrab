@@ -10,9 +10,9 @@ Parses the Cornell class roster and builds a SQL table of all courses
 def main(semester):
     client = Client()
 
-    # Delete old semester table
-    client.cursor.execute("DELETE FROM Courses")
-    client.cursor.commit()
+    # Delete old semester table, uncomment if creating new semester table
+    # client.cursor.execute("DELETE FROM Courses")
+    # client.cursor.commit()
 
     course_num_map = {}
     roster_page = "https://classes.cornell.edu/browse/roster/" + semester
@@ -37,11 +37,15 @@ def main(semester):
         course_code_tags = subject_bs4.find_all("strong", class_ = "tooltip-iws")
         for tag in course_code_tags:
             course_num = int(tag.getText().strip())
-            catalog_num = int("".join([x for x in tag.next_sibling.getText() if x.isdigit()]))
-            title = tag.parent.parent.parent.parent.parent.parent.find_all("div", class_ = "title-coursedescr")[0].getText()
-            section = str(tag.parent.parent.parent["aria-label"])[section_offset:]
-            command = "INSERT INTO Courses (CourseNum, OpenStatus, SubjectCode, CatalogNum, Title, Section) VALUES (?, 0, ?, ?, ?, ?)"
-            client.cursor.execute(command, [course_num, subject_code, catalog_num, title, section])
+            command = "SELECT CourseNum FROM Courses WHERE CourseNum = ?"
+            client.cursor.execute(command, course_num)
+            if client.cursor.fetchone is None:
+                catalog_num = int("".join([x for x in tag.next_sibling.getText() if x.isdigit()]))
+                title = tag.parent.parent.parent.parent.parent.parent.find_all("div", class_ = "title-coursedescr")[0].getText()
+                section = str(tag.parent.parent.parent["aria-label"])[section_offset:]
+                command = "INSERT INTO Courses (CourseNum, OpenStatus, SubjectCode, CatalogNum, Title, Section) VALUES (?, 0, ?, ?, ?, ?)"
+                print("\tInserted " + course_num + ": " + SubjectCode + " " + CatalogNum)
+                client.cursor.execute(command, [course_num, subject_code, catalog_num, title, section])
     client.connection.commit()
     client.connection.close()
 
