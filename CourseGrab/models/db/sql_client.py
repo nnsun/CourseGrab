@@ -64,3 +64,11 @@ class Client(object):
         self.cursor.execute(command, [id, course_num])
         self.cursor.commit()
 
+    def get_course_subject(self, course_num):
+        command = "SELECT SubjectCode FROM Courses WHERE CourseNum = ?"
+        self.cursor.execute(command, course_num)
+        row = self.cursor.fetchone()
+        if row is None:
+            # course_num does not exist
+            return None
+        return row.SubjectCode

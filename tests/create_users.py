@@ -1,7 +1,7 @@
 import sys
 sys.path.append("..")
 
-from CourseGrab.models.sql_client import Client
+from CourseGrab.models.db.sql_client import Client
 
 
 """Inserts 500 test users with random course subscriptions into the Users database.

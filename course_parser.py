@@ -1,7 +1,7 @@
 import sys
 import requests
 import bs4
-from CourseGrab.models.sql_client import Client
+from CourseGrab.models.db.sql_client import Client
 
 
 """
@@ -15,7 +15,7 @@ def main():
     # client.cursor.commit()
 
     course_num_map = {}
-    roster_page = "https://classes.cornell.edu/"
+    roster_page = "https://classes.cornell.edu"
     roster_request = requests.get(roster_page)
     roster_request.raise_for_status()
     split_url = roster_request.url.split('/')
