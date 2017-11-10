@@ -1,7 +1,7 @@
 appdirs==1.4.3
 beautifulsoup4==4.5.3
 click==6.7
-Flask==0.12.1
+Flask==0.12.2
 Flask-OAuth==0.12
 Flask-SSLify==0.1.5
 gunicorn

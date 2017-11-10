@@ -7,7 +7,7 @@ from CourseGrab.models.sql_client import Client
 """
 Parses the Cornell class roster and builds a SQL table of all courses
 """
-def main(semester):
+def main():
     client = Client()
 
     # Delete old semester table, uncomment if creating new semester table
@@ -15,9 +15,15 @@ def main(semester):
     # client.cursor.commit()
 
     course_num_map = {}
-    roster_page = "https://classes.cornell.edu/browse/roster/" + semester
+    roster_page = "https://classes.cornell.edu/"
     roster_request = requests.get(roster_page)
     roster_request.raise_for_status()
+    split_url = roster_request.url.split('/')
+    if split_url[-1] == '':
+        semester = split_url[-2]
+    else:
+        semester = split_url[-1]
+    print semester
     roster_bs4 = bs4.BeautifulSoup(roster_request.text, "html.parser")
     subject_tags = roster_bs4.select(".browse-subjectcode")
 
@@ -50,7 +56,4 @@ def main(semester):
     client.connection.close()
 
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-         print "Usage: 'python course_parser.py [SEMESTER]', e.g. 'python course_parser.py FA17'"
-    else:
-        main(sys.argv[1])
+        main()
