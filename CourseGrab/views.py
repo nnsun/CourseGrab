@@ -72,10 +72,13 @@ def submit_request():
 
 @application.route('/remove/<int:course_num>', methods = ['POST'])
 def remove(course_num):
-    user_dict = get_user_dict()
-    user_id = user_dict["id"]
-    client = Client()
-    client.remove_course(user_id, course_num)
+    if session.get('access_token') is None:
+        flash("Your session has expired. Please sign in again.")
+    else:
+        user_dict = get_user_dict()
+        user_id = user_dict["id"]
+        client = Client()
+        client.remove_course(user_id, course_num)
     return redirect(url_for('index'))
 
 
