@@ -11,8 +11,8 @@ def main():
     client = Client()
 
     # Delete old semester table, uncomment if creating new semester table
-    client.cursor.execute("DELETE FROM Courses")
-    client.cursor.commit()
+    # client.cursor.execute("DELETE FROM Courses")
+    # client.cursor.commit()
 
     course_num_map = {}
     roster_page = "https://classes.cornell.edu"
@@ -51,6 +51,7 @@ def main():
                 section = str(tag.parent.parent.parent["aria-label"])[section_offset:]
                 command = "INSERT INTO Courses (CourseNum, OpenStatus, SubjectCode, CatalogNum, Title, Section) VALUES (?, 0, ?, ?, ?, ?)"
                 client.cursor.execute(command, [course_num, subject_code, catalog_num, title, section])
+                print("    " + str(course_num))
     client.connection.commit()
     client.connection.close()
 
