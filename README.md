@@ -1,8 +1,10 @@
 # CourseGrab
 
+*This project is [now being maintained by Cornell App Dev](https://github.com/cuappdev/course-grab) and hosted at [coursegrab.cornellappdev.com] as of May 2019.*
+
 Need to add a course but there are no empty slots? Instead of constantly checking for an open slot throughout the day, adding undue stress to your busy life, let CourseGrab do it for you! Simply enter the course ID of the course you want to enroll in, and we'll send you a notification email when the course opens up!
 
-Deployed Spring 2017. Hosted at https://coursegrab.me. 
+Deployed Spring 2017
 
 Built for BigRed//Hacks 2016 by Chase Thomas and Ning Ning Sun
 
