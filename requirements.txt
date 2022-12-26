@@ -20,4 +20,4 @@ requests==2.13.0
 setuptools==34.4.1
 six==1.10.0
 Werkzeug==0.12.1
-wheel==0.29.0
+wheel==0.38.1
